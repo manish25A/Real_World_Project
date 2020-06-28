@@ -7,7 +7,7 @@ urlpatterns = [
     #render urls
     path('', renderviews.index, name='index'),
     path('?=login', renderviews.login, name='login'),
-    path('?=about', renderviews.about, name='about'),
+    path('about', renderviews.about, name='about'),
     path('candidatelogin', renderviews.candidatelogin, name='candidatelogin'),
     path('?=contactpage', renderviews.contactpage, name='contactpage'),
 
