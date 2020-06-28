@@ -1078,3 +1078,20 @@ textarea{
     height: 200px;
   }
 }
+
+.team .person {
+  display: block;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease; }
+  .team .person:hover, .team .person:focus {
+    opacity: .7; }
+  .team .person img {
+    max-width: 100%;
+    margin-bottom: 20px; }
+  .team .person h2 {
+    font-size: 18px;
+    line-height: 1.5; }
+  .team .person p {
+    font-size: 13px;
+    color: #ccc; }
