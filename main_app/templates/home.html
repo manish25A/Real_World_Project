@@ -23,7 +23,7 @@
 </head>
 
 <body>
-{% block indexcontent %}
+{% block content %}
 <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -73,7 +73,7 @@
 
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{% url 'contactpage' %}">Contact</a></li>
                                         <li><a href={% url 'login' %}><span class="bg-primary text-white py-3 px-4 rounded"> <strong>👤</strong> Login</span></a>
                                         </li>
                                     </ul>
@@ -898,7 +898,7 @@
         </div>
     </div>
 
-
+{% endblock content %}
     <footer class="site-footer">
         <div class="container">
 
@@ -910,6 +910,7 @@
                         provide Professionals of several fields to various users around the Nation through a Digital
                         Platform.</p>
                 </div>
+
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-6">
@@ -1068,6 +1069,6 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&libraries=places&callback=initAutocomplete"
         async defer></script>
-{% endblock indexcontent %}
+
 </body>
 </html>

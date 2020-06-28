@@ -1,13 +1,19 @@
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 
-from main_app.views import views
+from main_app.views import createviews, renderviews
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('login', views.login, name='login'),
-    path('candidatecreate', views.candidatecreate, name='candidatecreate'),
-    path('candidatelogin', views.candidatelogin, name='candidatelogin'),
+    #render urls
+    path('', renderviews.index, name='index'),
+    path('?=login', renderviews.login, name='login'),
+    path('candidatelogin', renderviews.candidatelogin, name='candidatelogin'),
+    path('?=contactpage', renderviews.contactpage, name='contactpage'),
+
+
+    #create urls
+     path('contactsave', createviews.contactform, name='contactsave'),
+    path('candidatecreate', createviews.candidatecreate, name='candidatecreate'),
 
 ]
 urlpatterns += staticfiles_urlpatterns()
