@@ -1,0 +1,332 @@
+.loginCointainer {
+	height:930px;
+    font-size: 20px;
+    width:100%;
+	background-color:#fafafa; /*#f0f0f0*/
+}
+
+.signinCointainer{
+	width:585px; 
+	height:900px;
+	padding:35px;
+	margin-top:20px;
+	margin-left:60px;
+	background-color:white;
+    float:left;	
+}
+
+.signinCointainer .userInfo {
+	text-align: center !important;
+    margin-bottom: 20px;
+}
+
+.signinCointainer .userInfo .title {
+    font-size: 20px;
+    margin: 0 0 5px;
+}
+
+h3, .h3 {
+    font-family: sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #262626;
+	display: block;
+	font-size: 28px;
+}
+
+.signinCointainer .LoginNotice {
+    margin-bottom: 10px;
+    padding: 10px 18px;
+    font-size: 15px;
+    background-color: #ccf5ef;
+}
+
+.loginForm .formGroup {
+    margin-bottom: 20px;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.loginForm .info {
+    font-size: 14px;
+}
+
+.formGroupStyle,select {
+    display: block;
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.loginForm .formGroupStyle{
+    padding: 5px 20px;
+}
+
+.Button {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    letter-spacing: 0;
+    padding: 12px 30px;
+    font-size: 16px;
+    line-height: 1.71;
+    border-radius: 4px;
+}
+
+.LoginButton {
+    color: #c0c0c0;
+    background-color: rgba(255,255,255,0);
+    border-color: #505050;
+	transition: all 0.4s ease-in-out 0s;
+}
+
+
+input[type="checkbox"] {
+    margin-right: 5px;
+	margin: 4px 0 0;
+    line-height: normal;
+	box-sizing: border-box;
+    padding: 0;
+}
+
+input[type="radio"]{
+    margin: 4px 0 0;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+.loginForm .remember, .signupForm .remember {
+    font-weight: 400;
+    color: #222;
+}
+
+.SubmitButton {
+    color: #fff;
+    background-color: #82b440;
+    border-color: #82b440;
+	display: block;
+    width: 100%;
+}
+
+.CancelButton{
+    color: #fff;
+    background-color: #e44343;
+    border-color: #e12d2d;
+	display: block;
+    width: 100%;
+}
+
+.SocialMediaCointainer a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    -webkit-border-radius: 4px;
+	color: #fff;
+    padding: 8px;
+    position: relative;
+}
+
+.SocialMediaCointainer .HorizontalLine {
+    text-align: center;
+    width: 100% !important;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.SocialMediaCointainer .HorizontalLine span {
+    padding: 0 20px;
+    background: #fff;
+}
+
+.SocialMediaCointainer .HorizontalLine:before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    background: #e6e8ef;
+}
+
+.FacebookBox, .GoogleBox, .LinkedinBox, .TwitterBox{
+    width: 50%;
+    float: left;
+	padding:8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 15px;
+}
+
+.SocialMediaCointainer .FacebookButton {
+    background: #3b5998;
+}
+
+.SocialMediaCointainer .GoogleButton {
+    background: #dc4d28;
+}
+
+.SocialMediaCointainer .LinkedinButton {
+    background: #0077B5;
+}
+
+.SocialMediaCointainer .TwitterButton {
+    background: #55acee;
+}
+
+.forgetPasswordForm {
+    position: relative;
+}
+
+.formButtonGroup{
+	width:50%; 
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+	float: left;
+}
+
+.signupCointainer{
+	width:585px; 
+	height:900px;
+	padding:35px;
+	margin-top:20px;
+	margin-left:60px;
+	background-color:white; 
+	float:left;	
+}
+
+.signupCointainer .userInfo {
+	text-align: center !important;
+    margin-bottom: 20px;
+}
+
+.signupCointainer .userInfo .title {
+    font-size: 20px;
+    margin: 0 0 5px;
+}
+
+.signupForm .formGroup {
+    margin-bottom: 20px;
+}
+
+.signupForm .formSpaceGap {
+	height:60px;
+    margin-bottom: 20px;
+}
+
+.signupForm .formGroupStyle {
+    padding: 5px 20px;
+}
+
+.signupForm .RoleTab li.active {
+    background: #82b440;
+    color: #fff;
+}
+
+.signupForm .RoleTab li:first-child {
+    margin-right: 12px;
+}
+
+.signupForm .RoleTab li input {
+    display: none;
+}
+.signupForm .RoleTab li label {
+	display: inline-block;
+    max-width: 100%;
+    cursor: pointer;
+    font-weight: 400;
+    margin: 0;
+    width: 100%;
+}
+.signupForm .RoleTab {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+}
+
+.signupForm .RoleTab li {
+    display: block;
+    text-align: center;
+    float: left;
+	padding:10px;
+    cursor: pointer;
+    width: calc(50% - 12px);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 1px solid #82b440;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.SelectHidden {
+    border: 0!important;
+    clip: rect(0 0 0 0)!important;
+    height: 1px!important;
+    margin: -1px!important;
+    overflow: hidden!important;
+    padding: 0!important;
+    position: absolute!important;
+    width: 1px!important;
+}
+
+.signupForm .ShowCandidate {
+	overflow-y: scroll;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.SelectWrapper option:checked{
+	color: #82b440 !important;
+	display:none;
+}
+
+.CandidateButton {
+    color: black;
+    background-color: white;
+    border-color: black;
+	display: block;
+    width: 100%;
+}
+
+.EmployerButton{
+    color: black;
+    background-color: white;
+    border-color: black;
+	display: block;
+    width: 100%;
+}
+
+.active_role{
+	color: #fff !important;
+    background-color: #82b440 !important;
+    border-color: #82b440 !important;
+}

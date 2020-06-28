@@ -14,6 +14,9 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
+def about(request):
+    return render(request, 'aboutus.html')
+
 
 def contactpage(request):
     return render(request, 'contact.html')
