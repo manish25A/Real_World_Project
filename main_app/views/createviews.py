@@ -1,17 +1,24 @@
 from django.shortcuts import render, redirect
 
-# importing from forms and views of another app
-# from admin_app.views.views import adminpage
-from main_app.forms.forms import CandidateForm, ContactForm
+from main_app.forms.forms import CandidateForm, ContactForm, CustomerEmailForm
+
+
+def emailcreate(request):
+    customeremailform = CustomerEmailForm(request.POST)
+    if request.method == "POST":
+        if customeremailform.is_valid():
+            customeremailform.save()
+        return redirect('login')
+    return render(request, 'login.html', {'customeremail': customeremailform})
 
 
 def candidatecreate(request):
+    candidateform = CandidateForm(request.POST)
     if request.method == "POST":
-        candidateform = CandidateForm(request.POST)
-        candidateform.save()
+        if candidateform.is_valid():
+            candidateform.save()
         return redirect('login')
-    candidate_create = CandidateForm()
-    return render(request, 'login.html', {'candidateCreate': candidate_create})
+    return render(request, 'login.html', {'candidateCreate': candidateform})
 
 
 def contactform(request):

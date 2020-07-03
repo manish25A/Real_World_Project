@@ -1,3 +1,5 @@
+import datetime
+
 from djongo import models
 
 
@@ -8,15 +10,16 @@ class CandidateForm(models.Model):
     company_name = models.CharField(max_length=150)
     phone_no = models.CharField(max_length=20)
     category = models.CharField(max_length=50)
+    datecreated = models.DateTimeField(default=datetime.datetime.now())
 
     class Meta:
         db_table = 'candidate'
 
 
 class ContactPage(models.Model):
-    name = models.CharField(max_length=50,default="name")
-    email = models.EmailField(unique=True,default="email")
-    phone = models.CharField(max_length=20,default="phone")
+    name = models.CharField(max_length=50, default="name")
+    email = models.EmailField(unique=True)
+    phone = models.CharField(max_length=20, default="phone")
     message = models.TextField(max_length=500, default="Message")
 
     class Meta:
