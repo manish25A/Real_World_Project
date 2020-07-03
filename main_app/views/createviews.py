@@ -1,15 +1,6 @@
 from django.shortcuts import render, redirect
 
-from main_app.forms.forms import CandidateForm, ContactForm, CustomerEmailForm
-
-
-def emailcreate(request):
-    customeremailform = CustomerEmailForm(request.POST)
-    if request.method == "POST":
-        if customeremailform.is_valid():
-            customeremailform.save()
-        return redirect('login')
-    return render(request, 'login.html', {'customeremail': customeremailform})
+from main_app.forms.forms import CandidateForm, ContactForm
 
 
 def candidatecreate(request):

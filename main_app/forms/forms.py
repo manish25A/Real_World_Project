@@ -1,6 +1,6 @@
 from django import forms
 
-from main_app.models.models import CandidateForm, ContactPage, CustomerEmail
+from main_app.models.models import CandidateForm, ContactPage
 
 
 class CandidateForm(forms.ModelForm):
@@ -12,10 +12,4 @@ class CandidateForm(forms.ModelForm):
 class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactPage
-        fields = "__all__"
-
-
-class CustomerEmailForm(forms.ModelForm):
-    class Meta:
-        model = CustomerEmail
         fields = "__all__"

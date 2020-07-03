@@ -3,10 +3,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 
 
-# importing from forms and views of another app
-# from admin_app.views.views import adminpage
-
-
 def index(request):
     return render(request, 'home.html')
 
