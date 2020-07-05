@@ -181,46 +181,32 @@
                     <div class="des">Choose your Account Type</div>
                 </div>
 
-                <form name="signupForm" method="post" action='/candidatecreate' class="signupForm">
+                <div class="formGroup formSpaceGap">
+                        <div class="formButtonGroup"><input type="button" class="Button CandidateButton active_role" value="Candidate" tabindex="100" onclick="ShowForm()"></div>
+                        <div class="formButtonGroup"><input type="button" class="Button EmployerButton" value="Employer" tabindex="101" onclick="ShowForm()"></div>
+                </div>
+
+                <!-- Candidate  -->
+                <form name="signupForm" method="post" action='/candidatecreate' id="candidateForm" class="signupForm candidateForm">
                     {% csrf_token %}
-                    <div class="formGroup formSpaceGap">
-                        <div class="formButtonGroup"><input type="button" class="Button CandidateButton active_role"
-                                                            value="Candidate" tabindex="100"></div>
-                        <div class="formButtonGroup"><input type="button" class="Button EmployerButton" value="Employer"
-                                                            tabindex="101"></div>
-                        <!-- <ul class="RoleTab"> -->
-                        <!-- <li class="active"><input id="cadidate" type="radio" name="role" value="wp_job_board_candidate" checked="checked"><label for="cadidate">Candidate</label></li> -->
-                        <!-- <li class=""><input type="radio" id="employer" name="role" value="wp_job_board_employer"><label for="employer">Employer</label></li> -->
-                        <!-- </ul> -->
-                    </div>
 
                     <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="username" id="register-username"
-                               placeholder="Username *">
+                        <input type="text" class="formGroupStyle" name="username" id="register-username" placeholder="Username *">
                     </div>
                     <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="email" id="register-email"
-                               placeholder="Email *">
+                        <input type="text" class="formGroupStyle" name="email" id="register-email" placeholder="Email *">
                     </div>
                     <div class="formGroup">
-                        <input type="password" class="formGroupStyle" name="password" id="password"
-                               placeholder="Password *">
+                        <input type="password" class="formGroupStyle" name="password" id="password" placeholder="Password *">
                     </div>
                     <div class="formGroup">
-                        <input type="password" class="formGroupStyle" name="confirm_password" id="confirmpassword"
-                               placeholder="Confirm Password *">
+                        <input type="password" class="formGroupStyle" name="confirm_password" id="confirmpassword" placeholder="Confirm Password *">
                     </div>
                     <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="company_name" id="register-company-name"
-                               placeholder="Company Name">
-                    </div>
-                    <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="phone_no" id="register-phone"
-                               placeholder="Phone">
+                        <input type="text" class="formGroupStyle" name="phone_no" id="register-phone" placeholder="Phone">
                     </div>
                     <div class="formGroup SelectWrapper">
-                        <select id="mySelect register-candidate-category" class="Select ShowCandidate"
-                                name="category" tabindex="-1">
+                        <select id="mySelect register-candidate-category" class="Select ShowCandidate" name="category" tabindex="-1">
                             <option selected name="Select Category">Select Category</option>
                             <option name="Accounting / Finance">Accounting / Finance</option>
                             <option name="Automotive Jobs">Automotive Jobs</option>
@@ -232,46 +218,61 @@
                             <option name="Telecommunications">Telecommunications</option>
                         </select>
                     </div>
-                    <!--
-                                        <div class="formGroup SelectWrapper" style="display: none;">
-                                            <select id="register-employer-category" class="SelectHidden" name="employer_category"
-                                                    tabindex="-1">
-                                                <option value="" selected>Select Category</option>
-                                                <option value="">Accounting / Finance</option>
-                                                <option value="">Automotive Jobs</option>
-                                                <option value="">Education Training</option>
-                                            </select>
-                                        </div>
-                                        <input type="hidden" id="security_register" name="security_register" value="9ccee8b29e"><input
-                                            type="hidden" name="_wp_http_referer" value="/wp-demo/careerup/login-register/">
-
-                                        <div id="recaptcha-contact-form" class="ga-recaptcha"
-                                             data-sitekey="6Lezm6oUAAAAABDn8kjWz4f5K2NH1HLzFTVWjOy7">
-                                            <div style="width: 304px; height: 78px;">
-                                                <div>
-                                                    <iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lezm6oUAAAAABDn8kjWz4f5K2NH1HLzFTVWjOy7&amp;co=aHR0cHM6Ly9hcHVzdGhlbWVzLmNvbTo0NDM.&amp;hl=en-GB&amp;v=HYx6hBAtwYatsD8qzq7tXNTk&amp;size=normal&amp;cb=kxm5jn5xpyrc"
-                                                            width="304" height="78" role="presentation" name="a-6akbghsxrai1"
-                                                            frameborder="0" scrolling="no"
-                                                            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
-                                                </div>
-                                                <textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response"
-                                                          style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
-                                            </div>
-                                            <iframe style="display: none;"></iframe>
-                                        </div>
-                          -->
                     <div class="formGroup">
                         <label for="register-terms-and-conditions">
-                            <input type="checkbox" name="terms_and_conditions" value="on"
-                                   id="register-terms-and-conditions" required="">You accept our <a href="#">Terms and
-                            Conditions and Privacy Policy</a></label>
+                            <input type="checkbox" name="terms_and_conditions" value="on" id="register-terms-and-conditions" required="">You accept our <a href="#">Terms and Conditions and Privacy Policy</a></label>
                     </div>
 
                     <div class="formGroup">
                         <button type="submit" class="Button SubmitButton">Register now</button>
                     </div>
-
                 </form>
+				
+				 <!-- Employee -->
+                <form name="signupForm" method="post" action='/employeecreate' id="employeeForm" class="signupForm employeeForm" style="display: none;">
+                    {% csrf_token %}
+
+                    <div class="formGroup">
+                        <input type="text" class="formGroupStyle" name="username" id="register-username" placeholder="Username *">
+                    </div>
+                    <div class="formGroup">
+                        <input type="text" class="formGroupStyle" name="email" id="register-email" placeholder="Email *">
+                    </div>
+                    <div class="formGroup">
+                        <input type="password" class="formGroupStyle" name="password" id="password" placeholder="Password *">
+                    </div>
+                    <div class="formGroup">
+                        <input type="password" class="formGroupStyle" name="confirm_password" id="confirmpassword" placeholder="Confirm Password *">
+                    </div>
+                    <div class="formGroup">
+                        <input type="text" class="formGroupStyle" name="company_name" id="register-company-name" placeholder="Company Name">
+                    </div>
+                    <div class="formGroup">
+                        <input type="text" class="formGroupStyle" name="phone_no" id="register-phone" placeholder="Phone">
+                    </div>
+                    <div class="formGroup SelectWrapper">
+                        <select id="mySelect register-candidate-category" class="Select ShowCandidate" name="category" tabindex="-1">
+                            <option selected name="Select Category">Select Category</option>
+                            <option name="Accounting / Finance">Accounting / Finance</option>
+                            <option name="Automotive Jobs">Automotive Jobs</option>
+                            <option name="Design, Art">Design, Art</option>
+                            <option name="Education Training">Education Training</option>
+                            <option name="Health">Health</option>
+                            <option name="Human Resource">Human Resource</option>
+                            <option name="Restaurant">Restaurant</option>
+                            <option name="Telecommunications">Telecommunications</option>
+                        </select>
+                    </div>
+                    <div class="formGroup">
+                        <label for="register-terms-and-conditions">
+                            <input type="checkbox" name="terms_and_conditions" value="on" id="register-terms-and-conditions" required="">You accept our <a href="#">Terms and Conditions and Privacy Policy</a></label>
+                    </div>
+
+                    <div class="formGroup">
+                        <button type="submit" class="Button SubmitButton">Register now</button>
+                    </div>
+                </form>
+				
             </div>
         </div>
     </div>
