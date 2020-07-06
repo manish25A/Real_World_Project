@@ -1,6 +1,5 @@
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
-
 from main_app.views import createviews, renderviews
 
 urlpatterns = [
@@ -11,6 +10,7 @@ urlpatterns = [
     path('candidatelogin', renderviews.candidatelogin, name='candidatelogin'),
     path('?=contactpage', renderviews.contactpage, name='contactpage'),
     path('?=aboutus', renderviews.aboutus, name='aboutus'),
+    path("404", renderviews.PageNotFound, name='404'),
 
 
     #create urls
