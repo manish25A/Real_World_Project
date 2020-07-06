@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Admin Dash</title>
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="main.css">
+
+		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/data.js"></script>
+		<script src="main.js"></script>
+
+	</head>
+	<body>
+		<div class="header">
+			<div class="logo">
+				<i class="fa fa-tachometer"></i>
+				<span>hirePros</span>
+			</div>
+			<a href="index.html" class="nav-trigger"><span></span></a>
+		</div>
+		<div class="side-nav">
+			<div class="logo">
+				<i class="fa fa-tachometer"></i>
+				<span>hirePros</span>
+			</div>
+			<nav>
+				<ul>
+				
+				<li class="time">
+                      <h1 class="animated fadeInLeft">00:00</h1>
+                      <p class="animated fadeInRight">Sat,October 1st 2029</p>
+                </li>
+					<li>
+						<a href="#">
+							<span><i class="fa fa-user"></i></span>
+							<span>Users</span>
+						</a>
+					</li>
+					<li>
+						<a href="userdetail.html">
+
+							<span><i class="fa fa-envelope"></i></span>
+							<span>User Detail</span>
+						</a>
+					</li>
+					<li class="active">
+						<a href="#">
+							<span><i class="fa fa-bar-chart"></i></span>
+							<span>Post and Edit Jobs</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		 <div style="height: 113px;"></div>
+		<div class="formbox">
+		<form>  
+        <fieldset style="float:left;">
+          <legend><span class="number">1</span>Your basic info</legend>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name">
+          
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="user_email">
+          
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="user_password">
+          
+          <label>Are You:</label>
+          <input type="radio" id="A Admin" value="A Admin" name="user_category"><label for="A Admin" class="light"> Admin</label><br>
+          <input type="radio" id="Client" value="Client" name="user_category"><label for="Client" class="light"> Client</label>
+        </fieldset>
+        
+        <fieldset style="float:right;">
+          <legend><span class="number">2</span> About Job</legend>
+          <label for="bio">Job Info:</label>
+          <textarea id="bio" name="user_bio"></textarea>
+        
+        
+        <label for="job">Job Role:</label>
+        <select id="job" name="user_job">
+          <optgroup label="Web">
+            <option value="frontend_developer">Front-End Developer</option>
+            <option value="php_developor">PHP Developer</option>
+            <option value="python_developer">Python Developer</option>
+            <option value="rails_developer"> Rails Developer</option>
+            <option value="web_designer">Web Designer</option>
+            <option value="WordPress_developer">WordPress Developer</option>
+          </optgroup>
+          <optgroup label="Mobile">
+            <option value="Android_developer">Androild Developer</option>
+            <option value="iOS_developer">iOS Developer</option>
+            <option value="mobile_designer">Mobile Designer</option>
+          </optgroup>
+          <optgroup label="Business">
+            <option value="business_owner">Business Owner</option>
+            <option value="freelancer">Freelancer</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="secretary">Secretary</option>
+            <option value="maintenance">Maintenance</option>
+          </optgroup>
+        </select>
+          <label for="Salary">Salary:</label>
+          <input type="text" id="Salary" name="Salary">
+        </fieldset>
+        <button type="submit">Post</button>
+      </form>
+  </div>
+	</body>
+</html>
+<script type="text/javascript">const target = {
+  clicked: 0,
+  currentFollowers: 90,
+  btn: document.querySelector("a.btn"),
+  fw: document.querySelector("span.followers")
+};
+
+const follow = () => {
+  target.clicked += 1;
+  target.btn.innerHTML = 'Following <i class="fas fa-user-times"></i>';
+
+  if (target.clicked % 2 === 0) {
+    target.currentFollowers -= 1;
+    target.btn.innerHTML = 'Follow <i class="fas fa-user-plus"></i>';
+  }
+  else {
+    target.currentFollowers += 1;
+  }
+
+  target.fw.textContent = target.currentFollowers;
+  target.btn.classList.toggle("following");
+}
+const target = {
+  clicked: 0,
+  currentFollowers: 90,
+  btn: document.querySelector("a.btn"),
+  fw: document.querySelector("span.followers")
+};
+
+const follow = () => {
+  target.clicked += 1;
+  target.btn.innerHTML = 'Following <i class="fas fa-user-times"></i>';
+
+  if (target.clicked % 2 === 0) {
+    target.currentFollowers -= 1;
+    target.btn.innerHTML = 'Follow <i class="fas fa-user-plus"></i>';
+  }
+  else {
+    target.currentFollowers += 1;
+  }
+
+  target.fw.textContent = target.currentFollowers;
+  target.btn.classList.toggle("following");
+}
+</script>
