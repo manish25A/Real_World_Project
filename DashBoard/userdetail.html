@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Userdetails</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="main.css">
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="main.js"></script>
+
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">
+        <i class="fa fa-tachometer"></i>
+        <span>hirePros</span>
+      </div>
+      <a href="index.html" class="nav-trigger"><span></span></a>
+    </div>
+    <div class="side-nav">
+      <div class="logo">
+        <i class="fa fa-tachometer"></i>
+        <span>hirePros</span>
+      </div>
+        <ul>
+		  <li class="time">
+                      <h1 class="animated fadeInLeft" id="timeonly">00:00</h1>
+                      <p class="animated fadeInRight">Sat,October 1st 2029</p>
+          </li>
+          <li>
+            <a href="index.html">
+              <span><i class="fa fa-user"></i></span>
+              <span>Users</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="charts.html">
+
+              <span><i class="fa fa-envelope"></i></span>
+              <span>User Detail</span>
+            </a>
+          </li>
+          <li>
+            <a href="jobforms.html">
+              <span><i class="fa fa-bar-chart"></i></span>
+              <span>Post and Edit Jobs</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+<div class="wrapper">
+    <div class="left">
+		 <div class="profilepicture"><img src="images/bsalt.jpg" alt="user"></div>
+         <h4>Bishal Jung Thapa</h4>
+         <p>Developer</p>
+    </div>
+    <div class="right">
+        <div class="info">
+            <h3>Information</h3>
+            <div class="info_data">
+                 <div class="data">
+                    <h4>Email</h4>
+                    <p>alex@gmail.com</p>
+                 </div>
+                 <div class="data">
+                   <h4>Phone</h4>
+                    <p>986789988</p>
+              </div>
+            </div>
+        </div>
+      
+      <div class="projects">
+            <h3>Projects</h3>
+            <div class="projects_data">
+                 <div class="data">
+                    <h4>Recent</h4>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                 </div>
+                 <div class="data">
+                   <h4>Most Viewed</h4>
+                    <p>dolor sit amet.</p>
+              </div>
+            </div>
+        </div>
+      
+        <div class="social_media">
+            <ul>
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+      </div>
+    </div>
+</div>
+
+<script>
+function startTime(){
+    var myfullDate = new Date();
+	var myYear = myfullDate.getFullYear();
+	var myMonth = myfullDate.getMonth();
+    var myDay = myfullDate.getDay();
+    var myDate = myfullDate.getDate();
+    var myHour = myfullDate.getHours();
+    var myMinute = myfullDate.getMinutes();
+	var weekday = ['Sun', 'Mon', 'Tue','Wed', 'Thu', 'Fri', 'Sat'];
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    document.getElementById("timeonly").innerText =( myHour + ":" + myMinute );
+	console.println(myHour);
+
+   var t = setTimeout(startTime, 500);
+}
+
+function checkTime(i) {
+  if (i < 9) {i = "0" + i};
+  return i;
+}
+</script>
+  </body>
+</html>
+ 

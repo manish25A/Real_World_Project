@@ -12,3 +12,18 @@ function ShowPasswordCointainer(){
 	  y.style.display = "block";
   }
 }
+
+function ShowForm(){
+  var x = document.getElementsByClassName("employeeForm")[0];
+  var y = document.getElementsByClassName("candidateForm")[0];
+
+  if (x.style.display === "none" && y.style.display === "block"){
+	  x.style.display = "block";
+	  y.style.display = "none";
+	  }
+  else {
+      x.style.display = "none";
+	  y.style.display = "block";
+  }
+}
+

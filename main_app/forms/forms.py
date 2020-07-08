@@ -1,9 +1,15 @@
 from django import forms
 
-from main_app.models.models import CandidateForm
+from main_app.models.models import CandidateForm, ContactPage
 
 
-class CandidateSign(forms.ModelForm):
+class CandidateForm(forms.ModelForm):
     class Meta:
         model = CandidateForm
+        fields = "__all__"
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = ContactPage
         fields = "__all__"
