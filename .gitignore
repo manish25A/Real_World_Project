@@ -1,11 +1,5 @@
 
-*.xml
-*.iml
 *.pyc
 *.pyc
+main_app/forms/__pycache__/__init__.cpython-38.pyc
 *.pyc
-*.pyc
-*.pyc
-*.pyc
-*.pyc
-
