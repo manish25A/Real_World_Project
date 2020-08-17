@@ -18,14 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    # urls of admin_app
-    # path("", include('admin_app.urls')),
     # urls of main_app
     path("", include('main_app.urls')),
-    # urls of customer_app
 
-    # path("", include('customer_app.urls')),
-    # allauth
-    # path('accounts/', include('allauth.urls'))
 ]
