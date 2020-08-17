@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login | Register</title>
+    <title>Login | hirePros</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href={% static "css/mediaelementplayer.css" %}>
     <link rel="stylesheet" href={% static "fonts/flaticon/font/flaticon.css" %}>
     <link rel="stylesheet" href={% static "css/aos.css" %}>
-    <link rel="stylesheet" href={% static "css/Login.css" %}>
+    <link rel="stylesheet" href={% static "css/LoginSignup.css" %}>
 </head>
 <body>
 
@@ -169,112 +169,6 @@
             </div>
         </div>
 
-    </div>
-<!--signup-->
-    <div class="signupCointainer">
-
-        <div class="signupForm">
-            <div id="signupForm" class="">
-
-                <div class="userInfo">
-                    <h3 class="title">Create New Account</h3>
-                    <div class="des">Choose your Account Type</div>
-                </div>
-
-                <div class="formGroup formSpaceGap">
-                        <div class="formButtonGroup"><input type="button" class="Button CandidateButton active_role" value="Candidate" tabindex="100" onclick="ShowForm()"></div>
-                        <div class="formButtonGroup"><input type="button" class="Button EmployerButton" value="Employer" tabindex="101" onclick="ShowForm()"></div>
-                </div>
-
-                <!-- Candidate  -->
-                <form name="signupForm" method="post" action='/candidatecreate' id="candidateForm" class="signupForm candidateForm">
-                    {% csrf_token %}
-
-                    <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="username" id="register-username" placeholder="Username *">
-                    </div>
-                    <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="email" id="register-email" placeholder="Email *">
-                    </div>
-                    <div class="formGroup">
-                        <input type="password" class="formGroupStyle" name="password" id="password" placeholder="Password *">
-                    </div>
-                    <div class="formGroup">
-                        <input type="password" class="formGroupStyle" name="confirm_password" id="confirmpassword" placeholder="Confirm Password *">
-                    </div>
-                    <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="phone_no" id="register-phone" placeholder="Phone">
-                    </div>
-                    <div class="formGroup SelectWrapper">
-                        <select id="mySelect register-candidate-category" class="Select ShowCandidate" name="category" tabindex="-1">
-                            <option selected name="Select Category">Select Category</option>
-                            <option name="Accounting / Finance">Accounting / Finance</option>
-                            <option name="Automotive Jobs">Automotive Jobs</option>
-                            <option name="Design, Art">Design, Art</option>
-                            <option name="Education Training">Education Training</option>
-                            <option name="Health">Health</option>
-                            <option name="Human Resource">Human Resource</option>
-                            <option name="Restaurant">Restaurant</option>
-                            <option name="Telecommunications">Telecommunications</option>
-                        </select>
-                    </div>
-                    <div class="formGroup">
-                        <label for="register-terms-and-conditions">
-                            <input type="checkbox" name="terms_and_conditions" value="on" id="register-terms-and-conditions" required="">You accept our <a href="#">Terms and Conditions and Privacy Policy</a></label>
-                    </div>
-
-                    <div class="formGroup">
-                        <button type="submit" class="Button SubmitButton">Register now</button>
-                    </div>
-                </form>
-				
-				 <!-- Employee -->
-                <form name="signupForm" method="post" action='/employeecreate' id="employeeForm" class="signupForm employeeForm" style="display: none;">
-                    {% csrf_token %}
-
-                    <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="username" id="register-username" placeholder="Username *">
-                    </div>
-                    <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="email" id="register-email" placeholder="Email *">
-                    </div>
-                    <div class="formGroup">
-                        <input type="password" class="formGroupStyle" name="password" id="password" placeholder="Password *">
-                    </div>
-                    <div class="formGroup">
-                        <input type="password" class="formGroupStyle" name="confirm_password" id="confirmpassword" placeholder="Confirm Password *">
-                    </div>
-                    <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="company_name" id="register-company-name" placeholder="Company Name">
-                    </div>
-                    <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="phone_no" id="register-phone" placeholder="Phone">
-                    </div>
-                    <div class="formGroup SelectWrapper">
-                        <select id="mySelect register-candidate-category" class="Select ShowCandidate" name="category" tabindex="-1">
-                            <option selected name="Select Category">Select Category</option>
-                            <option name="Accounting / Finance">Accounting / Finance</option>
-                            <option name="Automotive Jobs">Automotive Jobs</option>
-                            <option name="Design, Art">Design, Art</option>
-                            <option name="Education Training">Education Training</option>
-                            <option name="Health">Health</option>
-                            <option name="Human Resource">Human Resource</option>
-                            <option name="Restaurant">Restaurant</option>
-                            <option name="Telecommunications">Telecommunications</option>
-                        </select>
-                    </div>
-                    <div class="formGroup">
-                        <label for="register-terms-and-conditions">
-                            <input type="checkbox" name="terms_and_conditions" value="on" id="register-terms-and-conditions" required="">You accept our <a href="#">Terms and Conditions and Privacy Policy</a></label>
-                    </div>
-
-                    <div class="formGroup">
-                        <button type="submit" class="Button SubmitButton">Register now</button>
-                    </div>
-                </form>
-				
-            </div>
-        </div>
     </div>
 </div>
 
