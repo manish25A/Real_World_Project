@@ -63,7 +63,6 @@
                                         </ul>
                                     </li>
                                     <li><a href="{% url 'contactpage' %}">Contact</a></li>
-                                     <li><a href="{% url 'aboutus' %}">About Us</a></li>
                                     <li><a href="{% url 'login' %}"><span
                                             class="bg-primary text-white py-3 px-4 rounded"> <strong>👤</strong> Login</span></a>
                                     </li>
@@ -98,16 +97,16 @@
                     {% csrf_token %}
                     <div class="formGroup">
                         <input autocomplete="off" type="text" name="email" class="formGroupStyle"
-                               id="username_or_email" placeholder="Email" required>
+                               id="username_or_email" placeholder="Email">
                     </div>
                     <div class="formGroup">
                         <input name="password" type="password" class="password required formGroupStyle"
-                               id="login_password" placeholder="Password" required>
+                               id="login_password" placeholder="Password">
                     </div>
                     <div class="row formGroup info">
                         <div class="col-sm-6 col-xs-6">
                             <label for="user-remember-field" class="remember">
-                                <input type="checkbox" name="remember" id="user-remember-field" value="true" required> Keep me
+                                <input type="checkbox" name="remember" id="user-remember-field" value="true"> Keep me
                                 signed in </label>
                         </div>
                         <div class="col-sm-6 col-xs-6 text-right">

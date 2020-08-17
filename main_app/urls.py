@@ -5,11 +5,11 @@ from main_app.views import createviews, renderviews
 urlpatterns = [
     #render urls
     path('', renderviews.index, name='index'),
-    path('login', renderviews.login, name='login'),
+    path('?=login', renderviews.login, name='login'),
     path('about', renderviews.about, name='about'),
     path('candidatelogin', renderviews.candidatelogin, name='candidatelogin'),
-    path('contactpage', renderviews.contactpage, name='contactpage'),
-    path('aboutus', renderviews.aboutus, name='aboutus'),
+    path('?=contactpage', renderviews.contactpage, name='contactpage'),
+    path('?=aboutus', renderviews.aboutus, name='aboutus'),
     path("404", renderviews.PageNotFound, name='404'),
 
 
