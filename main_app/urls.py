@@ -11,7 +11,7 @@ urlpatterns = [
     path('?=contactpage', renderviews.contactpage, name='contactpage'),
     path('?=aboutus', renderviews.aboutus, name='aboutus'),
     path("404", renderviews.PageNotFound, name='404'),
-
+    path("professional",renderviews.professional,name='professional'),
 
     #create urls
      path('contactsave', createviews.contactform, name='contactsave'),
