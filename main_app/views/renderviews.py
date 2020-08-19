@@ -18,6 +18,8 @@ def login(request):
 def about(request):
     return render(request,'aboutus.html')
 
+def professional(request):
+    return render(request,'professional.html')
 
 def contactpage(request):
     return render(request,'contact.html')
