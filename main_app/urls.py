@@ -3,7 +3,7 @@ from django.urls import path
 from main_app.views import createviews, renderviews
 
 urlpatterns = [
-    #render urls
+    # render urls
     path('', renderviews.index, name='index'),
     path('login', renderviews.login, name='login'),
     path('about', renderviews.about, name='about'),
@@ -11,11 +11,11 @@ urlpatterns = [
     path('contactpage', renderviews.contactpage, name='contactpage'),
     path('aboutus', renderviews.aboutus, name='aboutus'),
     path("404", renderviews.PageNotFound, name='404'),
-    path("professional",renderviews.professional,name='professional'),
-
-    #create urls
-     path('contactsave', createviews.contactform, name='contactsave'),
-     path('candidatecreate', createviews.candidatecreate, name='candidatecreate'),
+    path("professional", renderviews.professional, name='professional'),
+    path("signup", renderviews.signup, name='signup'),
+    # create urls
+    path('contactsave', createviews.contactform, name='contactsave'),
+    path('candidatecreate', createviews.candidatecreate, name='candidatecreate'),
 
 ]
 urlpatterns += staticfiles_urlpatterns()
