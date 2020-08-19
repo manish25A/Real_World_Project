@@ -43,7 +43,7 @@
                                         class="icon-menu h3"></span></a></div>
 
                                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                    <li><a href="categories.html">For Candidates</a></li>
+                                    <li><a href="{% url 'professional' %}">For Candidates</a></li>
                                     <li class="has-children">
                                         <a href="category.html">For Employees</a>
                                         <ul class="dropdown arrow-top">
@@ -59,10 +59,10 @@
                                                     <li><a href="#">Employeer Profile</a></li>
                                                 </ul>
                                             </li>
-
                                         </ul>
                                     </li>
                                     <li><a href="{% url 'contactpage' %}">Contact</a></li>
+                                    <li><a href="{% url 'aboutus' %}">About Us</a></li>
                                     <li><a href="{% url 'login' %}"><span
                                             class="bg-primary text-white py-3 px-4 rounded"> <strong>👤</strong> Login</span></a>
                                     </li>

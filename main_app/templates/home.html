@@ -54,7 +54,7 @@
                                             class="icon-menu h3"></span></a></div>
 
                                     <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                        <li><a href="categories.html">For Candidates</a></li>
+                                        <li><a href="{% url 'professional' %}">For Candidates</a></li>
                                         <li class="has-children">
                                             <a href="category.html">For Employees</a>
                                             <ul class="dropdown arrow-top">
@@ -96,7 +96,7 @@
                 <div class="col-12" data-aos="fade">
                     <h1>Find Job &nbsp;</h1>
                     &nbsp;
-                    <form action="#">
+                    <form action="{% url 'professional' %}">
                         <div class="row mb-3">
                             <div class="col-md-9">
                                 <div class="row">
