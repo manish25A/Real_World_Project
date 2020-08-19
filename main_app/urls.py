@@ -12,7 +12,6 @@ urlpatterns = [
     path('aboutus', renderviews.aboutus, name='aboutus'),
     path("404", renderviews.PageNotFound, name='404'),
     path("professional", renderviews.professional, name='professional'),
-    path("signup", renderviews.signup, name='signup'),
     # create urls
     path('contactsave', createviews.contactform, name='contactsave'),
     path('candidatecreate', createviews.candidatecreate, name='candidatecreate'),
