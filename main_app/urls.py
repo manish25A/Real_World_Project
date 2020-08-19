@@ -12,6 +12,9 @@ urlpatterns = [
     path('aboutus', renderviews.aboutus, name='aboutus'),
     path("404", renderviews.PageNotFound, name='404'),
     path("professional", renderviews.professional, name='professional'),
+    path('dashboard',renderviews.dashboard, name='dashboard'),
+    path('admindashboard',renderviews.AdminDashboard, name='admindashboard'),
+    path('customerdashboard',renderviews.CustomerDashboard, name='customerdashboard'),
     # create urls
     path('contactsave', createviews.contactform, name='contactsave'),
     path('candidatecreate', createviews.candidatecreate, name='candidatecreate'),

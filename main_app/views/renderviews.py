@@ -10,6 +10,15 @@ def PageNotFound(request):
 def index(request):
     return render(request, 'home.html')
 
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+def AdminDashboard(request):
+    return render(request, 'AdminDashboard.html')
+
+def CustomerDashboard(request):
+    return render(request, 'CustomerDashboard.html')
+
 
 def login(request):
     return render(request, 'login.html')
