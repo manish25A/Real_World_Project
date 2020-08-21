@@ -1,0 +1,78 @@
+{% extends "CustomerLayout.html" %}
+{% block content %} 
+
+<form method="post" action="/updateUser/{{ user.user_id }}">	
+{% csrf_token %}
+<table>
+ <tr>
+ <td>Full Name:</td>
+ <td>Your Role:</td>
+ <td>Contact Number:</td>
+</tr>
+<tr>
+ <td><input type="text" value="{{ user.user_fullName }}" name="user_fullName" /></td>
+ <td><input type="text" value="{{ user.user_role }}" name="user_role" /></td>
+ <td><input type="text" value="{{ user.user_contactNumber }}" name="user_contactNumber" /></td>
+</tr>
+
+<tr>
+ <td>Email:</td>
+  <td>Gender:</td>
+ <td>Date of Birth:</td>
+</tr>
+<tr>
+ <td><input type="text" value="{{ user.user_email }}" name="user_email" /></td>
+  <td><input type="text" value="{{ user.user_gender }}" name="user_gender" /></td>
+  <td><input type="date" value="{{ user.user_dateOfBirth }}" name="user_dateOfBirth" /></td>
+</tr>
+<tr>
+ <td>Password:</td>
+ <td>Confirm Password:</td>
+  <td>Submit</td>
+  </tr>
+ <tr>
+  <td><input type="text" value="{{ user.user_password }}" name="user_password" /></td>
+  <td><input type="text" value="{{ user.user_confirm_password }}" name="user_confirm_password" /></td>
+ <td><button type="submit" class="makeEqual">Submit</button></td>
+ </tr>
+ 
+ </table>
+</form>
+
+<script>
+  $(document).ready(()=>{
+    $("#search").keyup(()=>{
+      $.ajax({
+        data:{search:$("#search").val()},
+        url:'/searchUser',
+        method:'GET',
+
+        success:function(data){
+          
+          $("tr").not("tr:First").remove();
+          let html="";
+          for(user of data){
+  
+            html+="<tr>";
+              html+="<td>"+user.user_id+"</td>";
+              html+="<td>"+user.user_fullName+"</td>";
+              html+="<td>"+user.user_role+"</td>";
+              html+="<td>"+user.user_contactNumber+"</td>";
+              html+="<td>"+user.user_email+"</td>";
+              html+="<td>"+user.user_gender+"</td>";
+              html+="<td>"+user.user_dateOfBirth+"</td>";
+              {% load static %}
+              html+="<td colspan=2><a  href='/editUser/{{ user.user_id }}'class='table_button'><img src='{% static '/Images/edit_icon.png' %}' alt='Edit Icon'/></a> <a  class='table_button' href='/delete/"+user.user_id+"'><img src='{% static 'Images/delete_icon.png' %}' alt='Delete Icon'></a></td>";
+            html+="</tr>";
+            $("table").append(html);
+            }
+        },error:function(error){
+        console.log(error)
+        },complete:function(){
+        console.log("complete")
+        }
+      })
+    })
+  })
+</script>
+{% endblock content %}
