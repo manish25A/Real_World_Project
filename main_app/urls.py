@@ -13,8 +13,8 @@ urlpatterns = [
     path("404", renderviews.PageNotFound, name='404'),
     path("professional", renderviews.professional, name='professional'),
     path('dashboard',renderviews.dashboard, name='dashboard'),
-    path('admindashboard',renderviews.AdminDashboard, name='admindashboard'),
-    path('customerdashboard',renderviews.CustomerDashboard, name='customerdashboard'),
+    path('admindash',renderviews.AdminDashboard, name='admindash'),
+    path('customerdash',renderviews.CustomerDashboard, name='customerdash'),
     # create urls
     path('contactsave', createviews.contactform, name='contactsave'),
     path('candidatecreate', createviews.candidatecreate, name='candidatecreate'),

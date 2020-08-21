@@ -14,10 +14,10 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 def AdminDashboard(request):
-    return render(request, 'AdminDashboard.html')
+    return render(request, 'admindash.html')
 
 def CustomerDashboard(request):
-    return render(request, 'CustomerDashboard.html')
+    return render(request, 'customerdash.html')
 
 
 def login(request):

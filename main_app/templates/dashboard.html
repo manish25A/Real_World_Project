@@ -7,32 +7,32 @@
 <meta charset="UTF-8" />
 </head>
 
-<body onload="startTime()">
+<body>
 
 <div class="PageNav" id="HideNav">
 
     <div style="padding-top:20px; margin-left:10px; margin-top:50px; float:left;">
   <ul>
     <li>
-    <a href="index" class="side_link flex_block" >
+    <a href={% url 'index' %} class="side_link flex_block" >
       <div>HomePage</div>
       <div class="arrow" style="float:right; color:white;">&#8811;</div>
     </a>
     </li>
     <li>
-    <a href="dashboard" class="side_link flex_block active" >
+    <a href={% url 'dashboard' %} class="side_link flex_block active" >
       <div>Dashboard</div>
       <div class="arrow" style="float:right; color:white;">&#8811;</div>
     </a>
     </li>
     <li>
-    <a href="admindashboard" class="side_link flex_block" >
+    <a href={% url 'admindash' %} class="side_link flex_block" >
       <div>Admin</div>
       <div class="arrow" style="float:right;">&#8811;</div>
     </a>
     </li>
     <li>
-    <a href="custoerdashboard" class="side_link flex_block" >
+    <a href={% url 'customerdash' %} class="side_link flex_block" >
       <div>Customer</div>
       <div class="arrow" style="float:right; color:white;">&#8811;</div>
     </a>
@@ -57,7 +57,7 @@
 
 <div class="secondBody">
 
-  <a href="/admindashboard"><div class="Card">
+  <a href={% url 'admindash' %}><div class="Card">
     <div class="CardHeadS">
       <div style="margin-left: 150px; float:left;">
          {% load static %}
@@ -74,7 +74,7 @@
   </div>
   </div></a>
   
-  <a href="/customerdashboard"><div class="Card">
+  <a href={% url 'customerdash' %}><div class="Card">
     <div class="CardHeadS">
       <div style="margin-left: 150px; float:left;">
          {% load static %}
