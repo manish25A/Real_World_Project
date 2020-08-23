@@ -1,44 +1,60 @@
-{% extends "AdminLayout.html" %}
+{% extends "providers/AdminLayout.html" %}
 {% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Users | Discussion Forum</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}"/>
+<link rel="stylesheet" href="{% static 'darkmodestyle.css' %}"/>
+<script src="{% static 'jQuery 3.4.1.js' %}"></script>  
+<meta charset="UTF-8" />
 
-<form method="post" action="/updateUser/{{ user.user_id }}">	
-{% csrf_token %}
-<table>
- <tr>
- <td>Full Name:</td>
- <td>Your Role:</td>
- <td>Contact Number:</td>
-</tr>
-<tr>
- <td><input type="text" value="{{ user.user_fullName }}" name="user_fullName" /></td>
- <td><input type="text" value="{{ user.user_role }}" name="user_role" /></td>
- <td><input type="text" value="{{ user.user_contactNumber }}" name="user_contactNumber" /></td>
-</tr>
+<body onload="startTime()">
 
-<tr>
- <td>Email:</td>
-  <td>Gender:</td>
- <td>Date of Birth:</td>
-</tr>
-<tr>
- <td><input type="text" value="{{ user.user_email }}" name="user_email" /></td>
-  <td><input type="text" value="{{ user.user_gender }}" name="user_gender" /></td>
-  <td><input type="date" value="{{ user.user_dateOfBirth }}" name="user_dateOfBirth" /></td>
-</tr>
-<tr>
- <td>Password:</td>
- <td>Confirm Password:</td>
-  <td>Submit</td>
-  </tr>
- <tr>
-  <td><input type="text" value="{{ user.user_password }}" name="user_password" /></td>
-  <td><input type="text" value="{{ user.user_confirm_password }}" name="user_confirm_password" /></td>
- <td><button type="submit" class="makeEqual">Submit</button></td>
- </tr>
- 
+<form  name="form" method="post" action="/createUser">
+  {% csrf_token %}
+  <table>
+     <tr>
+     <td>Full Name:</td>
+     <td>Your Role:</td>
+     <td>Contact Number:</td>
+    </tr>
+    <tr>
+     <td>{{ form.user_fullName }}</td>
+     <td>{{ form.user_role }}</td>
+     <td>{{ form.user_contactNumber }}</td>
+    </tr>
+
+    <tr>
+     <td>Email:</td>
+     <td>Gender:</td>
+     <td>Date of Birth</td>
+    </tr>
+    <tr>
+     
+     <td>{{ form.user_email }}</td>
+     <td>{{ form.user_gender }}</td>
+     <td>{{ form.user_dateOfBirth }}</td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td>Confirm Password:</td>
+      <td>Submit :</td>
+      
+    </tr>
+     <tr>
+     <td>{{ form.user_password }}</td>
+     <td>{{ form.user_confirm_password }}</td>
+     <td><button type="submit" class="makeEqual">submit</button></td>
+   </tr>
  </table>
 </form>
 
+
+
+{% load static %}
+<script src="{% static 'script.js' %}"></script>
 <script>
   $(document).ready(()=>{
     $("#search").keyup(()=>{

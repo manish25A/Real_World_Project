@@ -9,7 +9,7 @@ def candidatecreate(request):
         if candidateform.is_valid():
             candidateform.save()
         return redirect('login')
-    return render(request, 'login.html', {'candidateCreate': candidateform})
+    return render(request, 'mainpages/login.html', {'candidateCreate': candidateform})
 
 
 def contactform(request):
@@ -18,4 +18,4 @@ def contactform(request):
         contactform.save()
         return redirect('contactpage')
     contactform = ContactForm()
-    return render(request, 'contact.html', {'contactform': contactform})
+    return render(request, 'mainpages/contact.html', {'contactform': contactform})
