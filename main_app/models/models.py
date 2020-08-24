@@ -1,5 +1,3 @@
-import datetime
-
 from djongo import models
 
 
@@ -13,6 +11,16 @@ class Candidate(models.Model):
 
     class Meta:
         db_table = 'candidate'
+
+
+class CandidateApply(models.Model):
+    fname = models.CharField(max_length=50)
+    lname = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
+    profession = models.CharField(max_length=50)
+    Location = models.CharField(max_length=50)
+    curstats = models.CharField(max_length=50)
+    img = models.ImageField(max_length=50, default='img.jpg')
 
 
 class ContactPage(models.Model):

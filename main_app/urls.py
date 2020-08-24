@@ -25,6 +25,7 @@ urlpatterns = [
     path('deletecustomer', renderviews.DeleteCustomer, name='deletecustomer'),
     path('jobspage', renderviews.jobspage, name='jobspage'),
     path('jobpost', renderviews.jobpost, name='jobpost'),
+    path('apply', renderviews.apply, name='apply'),
 
     # create urls
     path('contactsave', createviews.contactform, name='contactsave'),

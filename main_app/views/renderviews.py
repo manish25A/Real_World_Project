@@ -26,6 +26,10 @@ def AdminDashboard(request):
 def CreateAdmin(request):
     return render(request, 'providers/createAdmin.html')
 
+def apply(request):
+    return render(request, 'providers/professionalpost.html')
+
+
 
 def ViewAdmin(request):
     return render(request, 'providers/adminView.html')
