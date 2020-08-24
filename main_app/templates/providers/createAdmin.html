@@ -1,0 +1,94 @@
+{% extends "providers/AdminLayout.html" %}
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Users | Discussion Forum</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}"/>
+<link rel="stylesheet" href="{% static 'darkmodestyle.css' %}"/>
+<script src="{% static 'jQuery 3.4.1.js' %}"></script>  
+<meta charset="UTF-8" />
+
+<body onload="startTime()">
+
+<form  name="form" method="post" action="/createUser">
+  {% csrf_token %}
+  <table>
+     <tr>
+     <td>Full Name:</td>
+     <td>Your Role:</td>
+     <td>Contact Number:</td>
+    </tr>
+    <tr>
+     <td>{{ form.user_fullName }}</td>
+     <td>{{ form.user_role }}</td>
+     <td>{{ form.user_contactNumber }}</td>
+    </tr>
+
+    <tr>
+     <td>Email:</td>
+     <td>Gender:</td>
+     <td>Date of Birth</td>
+    </tr>
+    <tr>
+     
+     <td>{{ form.user_email }}</td>
+     <td>{{ form.user_gender }}</td>
+     <td>{{ form.user_dateOfBirth }}</td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td>Confirm Password:</td>
+      <td>Submit :</td>
+      
+    </tr>
+     <tr>
+     <td>{{ form.user_password }}</td>
+     <td>{{ form.user_confirm_password }}</td>
+     <td><button type="submit" class="makeEqual">submit</button></td>
+   </tr>
+ </table>
+</form>
+
+
+
+{% load static %}
+<script src="{% static 'script.js' %}"></script>
+<script>
+  $(document).ready(()=>{
+    $("#search").keyup(()=>{
+      $.ajax({
+        data:{search:$("#search").val()},
+        url:'/searchUser',
+        method:'GET',
+
+        success:function(data){
+          
+          $("tr").not("tr:First").remove();
+          let html="";
+          for(user of data){
+  
+            html+="<tr>";
+              html+="<td>"+user.user_id+"</td>";
+              html+="<td>"+user.user_fullName+"</td>";
+              html+="<td>"+user.user_role+"</td>";
+              html+="<td>"+user.user_contactNumber+"</td>";
+              html+="<td>"+user.user_email+"</td>";
+              html+="<td>"+user.user_gender+"</td>";
+              html+="<td>"+user.user_dateOfBirth+"</td>";
+              {% load static %}
+              html+="<td colspan=2><a  href='/editUser/{{ user.user_id }}'class='table_button'><img src='{% static '/Images/edit_icon.png' %}' alt='Edit Icon'/></a> <a  class='table_button' href='/delete/"+user.user_id+"'><img src='{% static 'Images/delete_icon.png' %}' alt='Delete Icon'></a></td>";
+            html+="</tr>";
+            $("table").append(html);
+            }
+        },error:function(error){
+        console.log(error)
+        },complete:function(){
+        console.log("complete")
+        }
+      })
+    })
+  })
+</script>
+{% endblock content %}

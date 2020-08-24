@@ -1,0 +1,96 @@
+{% extends "professionals/CustomerLayout.html" %}
+{% block content %}		
+<table>
+		<thead>
+		   <th>Id</th>
+		   <th>Full name</th>
+		   <th>Role</th>
+		   <th>Phone No.</th>
+		   <th>Email</th>
+		   <th>Gender</th>
+		   <th>Birth Date</th>
+		   <th colspan="2"></th>
+		</thead>
+
+
+		
+		<tbody>
+		{% for user in users %}
+		<tr>
+			<td>{{ user.user_id }}</td>
+		   <td>{{ user.user_fullName }}</td>
+		   <td>{{ user.user_role }}</td>
+		   <td>{{ user.user_contactNumber }}</td>
+		   <td>{{ user.user_email }}</td>
+		   <td>{{ user.user_gender }}</td>
+		   <td>{{ user.user_dateOfBirth }}</td>
+		   <td colspan="2" class="crud_buttons">
+   			    {% load static %}
+  			    <a href="/editUser/{{ user.user_id }}" class="table_button"><img src="{% static 'Images/edit_icon.png' %}" alt="Edit Icon"></a>
+  			    {% load static %}
+  			    <a href="/deleteUser/{{ user.user_id }}" class="table_button"><img src="{% static 'Images/delete_icon.png' %}" alt="Delete Icon"></a>
+			</td>
+	    </tr>
+	    {% endfor %}
+	    </tbody> 
+</table>
+
+<div id="pagination" class="Pagination">
+    <form method="post" action="/users">
+      {% csrf_token %}
+      <span class="step-links">
+
+      {% if users.has_previous %}
+      <a href="?page={{ users.previous_page_number }}"class="previousPage">&laquo; Previous Page</a>
+      {% endif %}
+      <span class="current">
+        Page {{ users.number }} of {{ users.paginator.num_pages }}
+      </span>
+      {% if users.has_next %}
+      <a href="?page={{ users.next_page_number }}" class="nextPage">Next Page  &raquo;</a>
+      {% endif %}
+      </span>
+      </form>
+</div>
+
+
+
+
+
+<script>
+  $(document).ready(()=>{
+    $("#search").keyup(()=>{
+      $.ajax({
+        data:{search:$("#search").val()},
+        url:'/searchUser',
+        method:'GET',
+
+        success:function(data){
+        	
+          $("tr").not("tr:First").remove();
+          let html="";
+          for(user of data){
+  
+            html+="<tr>";
+              html+="<td>"+user.user_id+"</td>";
+              html+="<td>"+user.user_fullName+"</td>";
+              html+="<td>"+user.user_role+"</td>";
+              html+="<td>"+user.user_contactNumber+"</td>";
+              html+="<td>"+user.user_email+"</td>";
+              html+="<td>"+user.user_gender+"</td>";
+              html+="<td>"+user.user_dateOfBirth+"</td>";
+              {% load static %}
+              html+="<td colspan=2><a  href='/editUser/{{ user.user_id }}'class='table_button'><img src='{% static '/Images/edit_icon.png' %}' alt='Edit Icon'/></a> <a  class='table_button' href='/delete/"+user.user_id+"'><img src='{% static 'Images/delete_icon.png' %}' alt='Delete Icon'></a></td>";
+            html+="</tr>";
+            $("table").append(html);
+            }
+        },error:function(error){
+        console.log(error)
+        },complete:function(){
+        console.log("complete")
+        }
+      })
+    })
+  })
+</script>
+{% endblock content %}
