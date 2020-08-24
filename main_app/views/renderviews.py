@@ -74,8 +74,13 @@ def professional(request):
 def contactpage(request):
     return render(request, 'mainpages/contact.html')
 
+
 def jobspage(request):
     return render(request, 'mainpages/Jobs.html')
+
+
+def jobpost(request):
+    return render(request, 'providers/jobpost.html')
 
 
 def aboutus(request):

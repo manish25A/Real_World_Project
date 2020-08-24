@@ -41,7 +41,7 @@
     </div>
 </div>
 
-
+{% block dashcontent %}
 <div class="dashboard" id="ExpandDashboard">
     <div class="bodyDashboard">
         <div class="firstBody">
@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    {% load static %}
+  {% endblock dashcontent %}
     <script src="{% static 'js/script.js' %}"></script>
 
 </body>
