@@ -7,12 +7,12 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
 <link rel="stylesheet" href="{% static 'css/darkmodestyle.css' %}"/>
-<script src="{% static 'jQuery 3.4.1.js' %}"></script>  
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <meta charset="UTF-8" />
 
 <body onload="startTime()">
 
-<form  name="form" method="post" action="/createUser">
+<form  name="form" method="post" action="{% url 'candidatecreate' %}">
   {% csrf_token %}
   <table>
      <tr>

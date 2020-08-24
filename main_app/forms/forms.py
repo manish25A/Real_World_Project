@@ -1,11 +1,11 @@
 from django import forms
 
-from main_app.models.models import CandidateForm, ContactPage
+from main_app.models.models import Candidate, ContactPage
 
 
 class CandidateTable(forms.ModelForm):
     class Meta:
-        model = CandidateForm
+        model = Candidate
         fields = "__all__"
 
 
