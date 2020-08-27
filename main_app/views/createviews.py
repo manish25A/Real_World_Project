@@ -1,7 +1,8 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 
 from main_app.models.models import Candidate
-from main_app.forms.forms import CandidateTable, ContactForm
+from main_app.forms.forms import CandidateTable, ContactForm, jobpostform
 from django.contrib import messages
 
 
@@ -24,6 +25,16 @@ def contactform(request):
     return render(request, 'mainpages/contact.html', {'contactform': contactform})
 
 
+def jobpostformdata(request):
+    if request.method == "POST":
+        jobpost = jobpostform(request.POST)
+        jobpost.save()
+        return redirect('contactpage')
+    jobpost = jobpostform()
+    return render(request, 'mainpages/contact.html', {'jobpost': jobpost})
+
+
+
 def loginValidate(request):
     try:
         # storing email and password in session
@@ -40,3 +51,15 @@ def loginValidate(request):
     except:
         messages.warning(request, "Invalid Username or Password")
         return redirect('/index/')
+
+##
+
+def candidatelogin(request):
+    try:
+        request.session['email'] = request.POST['email']
+        request.session['password'] = request.POST['password']
+        return redirect('/dashboard')
+    except ObjectDoesNotExist:
+        messages.warning(request, "Please Enter valid email or  password.")
+        return redirect('/login')
+        pass

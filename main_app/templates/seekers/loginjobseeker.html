@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load  static %}
+{% block content %}
+    <body>
+
+
+    <div style="height: 113px;"></div>
+
+    <div class="conta">
+        <div class="forms-conta">
+            <div class="signin-signup">
+                <form action="#" class="sign-in-form">
+                    <h2 class="title">JobSeeker Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username"/>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password"/>
+                    </div>
+                    <input type="submit" value="Login" class="buton solid"/>
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </form>
+                <form action="#" class="sign-up-form">
+                    <h2 class="title">JobSeeker Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username"/>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email"/>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password"/>
+                    </div>
+
+                    <input type="submit" class="buton" value="Sign up"/>
+                    <p class="social-text">Or Sign up with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-conta">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Are You New here?</h3>
+                    <p>
+                        Don't have a account?
+                    </p>
+                    <button class="buton transparent" id="sign-up-buton">
+                        Sign up
+                    </button>
+                </div>
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Are You Already Member?</h3>
+                    <p>
+                        Login Here..
+                    </p>
+                    <button class="buton transparent" id="sign-in-buton">
+                        Sign in
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
