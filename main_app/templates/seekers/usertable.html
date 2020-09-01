@@ -40,34 +40,18 @@
                 <th>Cancel</th>
             </tr>
             </thead>
+            {% for appliedlist in appliedtable %}
             <tbody>
             <tr>
-                <td>Thapa Cafe</td>
+                <td>{{  }}</td>
                 <td>Cook</td>
                 <td>Rs 17000</td>
                 <td>
                     <button type="submit"><strong>❌</strong></button>
                 </td>
             </tr>
-            <tr>
-                <td>H20 Clothings</td>
-                <td>Salesman</td>
-                <td>Rs 17000</td>
-                <td>
-                    <button type="submit"><strong>❌</strong></button>
-                </td>
-            </tr>
-            <tr>
-                <td>Davis Motors</td>
-                <td>Bike Mechanic</td>
-                <td>Rs 17000</td>
-                <td>
-                    <button type="submit"><strong>❌</strong></button>
-                </td>
-            </tr>
             </tbody>
+            {% endfor %}
         </table>
-
-
     </div>
 {% endblock content %}

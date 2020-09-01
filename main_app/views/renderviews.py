@@ -1,13 +1,9 @@
-from django.contrib import messages
-from django.core.exceptions import ObjectDoesNotExist
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.views.defaults import page_not_found
-from django.shortcuts import render, redirect
-
-from main_app.models.models import jobpostmodel
-
+from django.shortcuts import render
 
 # main pages
+from main_app.models.models import jobpostmodel, Provider
+
+
 def index(request):
     return render(request, 'mainpages/home.html')
 
@@ -31,8 +27,9 @@ def jobspage(request):
 
 # providers
 
-def providerdashboard(request):
-    return render(request, 'providers/providersdash.html')
+def providerdashboard(request, id):
+    dash = Provider.objects.get(compname=id)
+    return render(request, 'providers/providersdash.html', {'dash': dash})
 
 
 def jobstable(request):
@@ -61,13 +58,5 @@ def jobsform(request):
     return render(request, 'seekers/JobsForm.html')
 
 
-def seekerdash(request):
-    return render(request, 'seekers/userdash.html')
-
-
-def appliedlist(request):
-    return render(request, 'seekers/usertable.html')
-
-
-def apply(request):
+def seekerapply(request):
     return render(request, 'seekers/seekersapply.html')

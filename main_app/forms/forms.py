@@ -1,15 +1,21 @@
 from django import forms
 
-from main_app.models.models import Candidate, ContactPage, jobpostmodel
+from main_app.models.models import Seeker, ContactPage, jobpostmodel, seekerapply, Provider
 
 
-class CandidateTable(forms.ModelForm):
+class seekerform(forms.ModelForm):
     class Meta:
-        model = Candidate
+        model = Seeker
         fields = "__all__"
 
 
-class ContactForm(forms.ModelForm):
+class providerform(forms.ModelForm):
+    class Meta:
+        model = Provider
+        fields = "__all__"
+
+
+class contactform(forms.ModelForm):
     class Meta:
         model = ContactPage
         fields = "__all__"
@@ -18,4 +24,10 @@ class ContactForm(forms.ModelForm):
 class jobpostform(forms.ModelForm):
     class Meta:
         model = jobpostmodel
+        fields = "__all__"
+
+
+class seekerapplyform(forms.ModelForm):
+    class Meta:
+        model = seekerapply
         fields = "__all__"

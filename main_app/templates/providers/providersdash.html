@@ -1,73 +1,73 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  <body>
-    <div style="height: 150px;"></div>        
+    <body>
+    <div style="height: 150px;"></div>
     <div class="mobile_nav">
-      <div class="nav_bar">
-        <i class="fa fa-bars nav_btn"></i>
-      </div>
-      <div class="mobile_nav_items">
-       <a class="actve" href="providersdash.html"><strong>🏢</strong><span> Company Profile</span></a>
-       <a  href="../jobpost.html"><strong>💼</strong><span> Post Job</span></a>
-        <a href="employeetable.html"><strong>📝</strong><span> Manage Jobs</span></a>
-        <a  href="../professionalpost.html"><strong>📁</strong><span> Post Candidiate</span></a>
-      </div>
+        <div class="nav_bar">
+            <i class="fa fa-bars nav_btn"></i>
+        </div>
+        <div class="mobile_nav_items">
+            <a class="actve" href="providersdash.html"><strong>🏢</strong><span> Company Profile</span></a>
+            <a href="../jobpost.html"><strong>💼</strong><span> Post Job</span></a>
+            <a href="employeetable.html"><strong>📝</strong><span> Manage Jobs</span></a>
+            <a href="../professionalpost.html"><strong>📁</strong><span> Post Candidiate</span></a>
+        </div>
     </div>
- 
+
     <div class="sidebar">
-      <div class="profile_info">
-        <h4>Company Name</h4>
-      </div>
-      <a class="actve" href="providersdash.html"><strong>🏢</strong><span> Company Profile</span></a>
-       <a href="../jobpost.html"><strong>💼</strong><span> Post Job</span></a>
-        <a href="employeetable.html"><strong>📝</strong><span> Manage Jobs</span></a>
-         <a href="../professionalpost.html"><strong>📁</strong><span> Post Candidiate</span></a>
+        <div class="profile_info">
+            <h4>Company Name</h4>
+        </div>
+        <a class="actve" href="providersdash.html"><strong>🏢</strong><span> Company Profile</span></a>
+        <a href="{% url 'jobpost' %}"><strong>💼</strong><span> Post Job</span></a>
+        <a href="{% url '' %}"><strong>📝</strong><span> Manage Jobs</span></a>
+        <a href="../professionalpost.html"><strong>📁</strong><span> Post Candidiate</span></a>
     </div>
-  
+
 
     <div class="content">
-     
-         <div class="top-form">
+
+        <div class="top-form">
             <div class="inner-form">
-        <div class="label">Name</div>
-        <input type="text" placeholder="Your Name">
-      </div>
-      <div class="inner-form">
-        <div class="label">Company Name</div>
-        <input type="text" placeholder="Company Name">
-      </div>
-      <div class="inner-form">
-        <div class="label">Email</div>
-        <input type="text" placeholder="Example@gmail.com">
-      </div>
-      <div class="inner-form">
-        <div class="label">Founded Year</div>
-        <input type="text" placeholder="Founded Year">
-      </div>
-      <div class="inner-form">
-        <div class="label">Phone</div>
-        <input type="text" placeholder="+977-98********">
-      </div>
-        <div class="inner-form">
-        <div class="label">Password</div>
-        <input type="password" placeholder="Password">
-      </div>
-    </div>
+                <div class="label">Name</div>
+                <input type="text" name="name" value="{{ dash.name }}" placeholder="Your Name">
+            </div>
+            <div class="inner-form">
+                <div class="label">Company Name</div>
+                <input type="text" name="compname" value="{{ dash.compname }}" placeholder="Company Name">
+            </div>
+            <div class="inner-form">
+                <div class="label">Email</div>
+                <input type="text" name="email" value="{{ dash.email }}" placeholder="Example@gmail.com">
+            </div>
+            <div class="inner-form">
+                <div class="label">Founded Year</div>
+                <input type="date" name="fyear" value="{{ dash.fyear }}"placeholder="Founded Year">
+            </div>
+            <div class="inner-form">
+                <div class="label">Phone</div>
+                <input type="text" name="phoneno" value="{{ dash.phoneno }}" placeholder="+977-98********">
+            </div>
+            <div class="inner-form">
+                <div class="label">Password</div>
+                <input type="password" name="password" value="{{ dash.password }}" placeholder="Password">
+            </div>
+        </div>
 
-    <div class="middle-form">
-      <div class="inner-form">
-        <div class="label">Company Address</div>
-        <input type="text" placeholder="Company Address">
-      </div>
-    </div>
+        <div class="middle-form">
+            <div class="inner-form">
+                <div class="label">Company Address</div>
+                <input type="text"name="address" value="{{ dash.address }}" placeholder="Company Address">
+            </div>
+        </div>
 
-    <div class="bottom-form">
-      <div class="inner-form">
-        <div class="label">Company Description</div>
-        <textarea placeholder="Your Company Description"></textarea>
-      </div>
-    </div>
-    <button type="submit">Update</button>
+        <div class="bottom-form">
+            <div class="inner-form">
+                <div class="label">Company Description</div>
+                <textarea name="description" value="{{ dash.description }}" placeholder="Your Company Description"></textarea>
+            </div>
+        </div>
+        <button type="submit">Update</button>
     </div>
 {% endblock content %}

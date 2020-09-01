@@ -1,48 +1,61 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div style="height: 150px;"></div>
+    <div style="height: 150px;"></div>
 
-<div class="wrappe">
-    <div class="contnt">
-        <h1>CONTACT FORM</h1>
-        <p>Connect with us by sending your views.</p>
+    <div class="wrappe">
+        <div class="contnt">
+            <h1>CONTACT FORM</h1>
+            <p>Connect with us by sending your views.</p>
+        </div>
+
+        <div class="form">
+            <form action="/contactpage/save" method="post" >
+                {% csrf_token %}
+                <div class="top-form">
+                    <div class="inner-form">
+                        <div class="label">Name</div>
+                        <label>
+                            <input type="text" name="contactname" placeholder="Your Name">
+                        </label>
+                    </div>
+                    <div class="inner-form">
+                        <div class="label">Email</div>
+                        <label>
+                            <input type="text" name="contactemail" placeholder="Example@gmail.com">
+                        </label>
+                    </div>
+                    <div class="inner-form">
+                        <div class="label">Phone</div>
+                        <label>
+                            <input type="text" name="contactphoneno" placeholder="+977-98********">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="middle-form">
+                    <div class="inner-form">
+                        <div class="label">Subject</div>
+                        <label>
+                            <input type="text" name="subject" placeholder="Subject">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bottom-form">
+                    <div class="inner-form">
+                        <div class="label">Message</div>
+                        <label>
+                            <textarea name="message" placeholder="Your Message"></textarea>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="btn-block">
+                    <button type="submit">Post</button>
+                </div>
+            </form>
+        </div>
+
     </div>
-
-    <div class="form">
-
-        <div class="top-form">
-            <div class="inner-form">
-                <div class="label">Name</div>
-                <input type="text" placeholder="Your Name">
-            </div>
-            <div class="inner-form">
-                <div class="label">Email</div>
-                <input type="text" placeholder="Example@gmail.com">
-            </div>
-            <div class="inner-form">
-                <div class="label">Phone</div>
-                <input type="text" placeholder="+977-98********">
-            </div>
-        </div>
-
-        <div class="middle-form">
-            <div class="inner-form">
-                <div class="label">Subject</div>
-                <input type="text" placeholder="Subject">
-            </div>
-        </div>
-
-        <div class="bottom-form">
-            <div class="inner-form">
-                <div class="label">Message</div>
-                <textarea placeholder="Your Message"></textarea>
-            </div>
-        </div>
-
-        <div class="btn-block">
-            <button type="submit" href="/">Post</button>
-        </div>
-    </div>
-</div>
 {% endblock content %}

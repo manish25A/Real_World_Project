@@ -11,15 +11,18 @@
             <div class="signin-signup">
                 <fom action="#" class="sign-in-form">
                     <h2 class="title">EMPLOYER Sign in</h2>
+                    <form action="/providerlogin" method="post">
+                        {% csrf_token %}
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username"/>
+                        <input type="text" name="email" placeholder="email"/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password"/>
+                        <input type="password" name="password" placeholder="password"/>
                     </div>
-                    <input type="submit" value="Login" class="buton solid"/>
+                        <button type="submit" class="buton solid"> LOGIN</button>
+                    </form>
                     <p class="social-text">Or Sign in with social platforms</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -38,50 +41,53 @@
                 </fom>
                 <fom action="#" class="sign-up-form">
                     <h2 class="title">EMPLOYER Sign up</h2>
+                    <form method="post" action="/providersignup">
+                        {% csrf_token %}
 
-                    <div class="top-form">
-                        <div class="inner-form">
-                            <div class="label">Name</div>
-                            <input type="text" placeholder="Your Name">
+                        <div class="top-form">
+                            <div class="inner-form">
+                                <div class="label">Name</div>
+                                <input type="text" name="name" placeholder="Your Name">
+                            </div>
+                            <div class="inner-form">
+                                <div class="label">Company Name</div>
+                                <input type="text" name="compname" placeholder="Company Name">
+                            </div>
+                            <div class="inner-form">
+                                <div class="label">Email</div>
+                                <input type="text" name="email" placeholder="Example@gmail.com">
+                            </div>
+                            <div class="inner-form">
+                                <div class="label">Founded Year</div>
+                                <input type="date" name="fyear" placeholder="Founded Year">
+                            </div>
+                            <div class="inner-form">
+                                <div class="label">Phone</div>
+                                <input type="text" name="phoneno" placeholder="+977-98********">
+                            </div>
+                            <div class="inner-form">
+                                <div class="label">Password</div>
+                                <input type="password" name="password" placeholder="Password">
+                            </div>
                         </div>
-                        <div class="inner-form">
-                            <div class="label">Company Name</div>
-                            <input type="text" placeholder="Company Name">
-                        </div>
-                        <div class="inner-form">
-                            <div class="label">Email</div>
-                            <input type="text" placeholder="Example@gmail.com">
-                        </div>
-                        <div class="inner-form">
-                            <div class="label">Founded Year</div>
-                            <input type="text" placeholder="Founded Year">
-                        </div>
-                        <div class="inner-form">
-                            <div class="label">Phone</div>
-                            <input type="text" placeholder="+977-98********">
-                        </div>
-                        <div class="inner-form">
-                            <div class="label">Password</div>
-                            <input type="password" placeholder="Password">
-                        </div>
-                    </div>
 
-                    <div class="middle-form">
-                        <div class="inner-form">
-                            <div class="label">Company Address</div>
-                            <input type="text" placeholder="Company Address">
+                        <div class="middle-form">
+                            <div class="inner-form">
+                                <div class="label">Company Address</div>
+                                <input type="text" name="address" placeholder="Company Address">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="bottom-form">
-                        <div class="inner-form">
-                            <div class="label">Company Description</div>
-                            <textarea placeholder="Your Company Description"></textarea>
+                        <div class="bottom-form">
+                            <div class="inner-form">
+                                <div class="label">Company Description</div>
+                                <textarea name="description" placeholder="Your Company Description"></textarea>
+                            </div>
                         </div>
-                    </div>
 
-                    <input type="submit" class="buton" value="Sign up"/>
+                        <button type="submit"> Signup</button>
 
+                    </form>
                 </fom>
             </div>
         </div>

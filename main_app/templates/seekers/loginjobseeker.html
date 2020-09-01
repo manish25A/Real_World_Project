@@ -1,25 +1,28 @@
 {% extends 'base.html' %}
-{% load  static %}
+{% load static %}
 {% block content %}
-    <body>
 
+    <body>
 
     <div style="height: 113px;"></div>
 
     <div class="conta">
         <div class="forms-conta">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
-                    <h2 class="title">JobSeeker Sign in</h2>
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username"/>
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password"/>
-                    </div>
-                    <input type="submit" value="Login" class="buton solid"/>
+                <fom class="sign-in-form">
+                    <form action="/candidatelogin" method="post">
+                        {% csrf_token %}
+                        <h2 class="title">EMPLOYER Sign in</h2>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="seekeremail" placeholder="email"/>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="seekerpassword" placeholder="Password"/>
+                        </div>
+                        <button type="submit" class="buton solid">Login</button>
+                    </form>
                     <p class="social-text">Or Sign in with social platforms</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -35,39 +38,30 @@
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
-                </form>
-                <form action="#" class="sign-up-form">
-                    <h2 class="title">JobSeeker Sign up</h2>
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username"/>
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email"/>
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password"/>
-                    </div>
+                </fom>
+                <fom class="sign-up-form">
+                    <form action="/seekers/signup" method="post">
+                        {% csrf_token %}
+                        <h2 class="title">JobSeeker Sign up</h2>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="seekerusername" placeholder="Username"/>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="seekeremail" placeholder="Email"/>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="seekerpassword" placeholder="Password"/>
+                        </div>
 
-                    <input type="submit" class="buton" value="Sign up"/>
-                    <p class="social-text">Or Sign up with social platforms</p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </form>
+
+                        <button type="submit"> submit</button>
+                    </form>
+
+
+                </fom>
             </div>
         </div>
 

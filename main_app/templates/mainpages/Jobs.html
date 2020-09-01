@@ -1,24 +1,44 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
+    <body>
+    <div style="height: 113px;"></div>
+    <!--search -->
+    <input class="textfield filter__search js-shuffle-search" type="Searchs" name="Searchs"
+           placeholder="Search Jobs......" pattern=".*\S.*" required>
+    <div id="conta" class="row ">
+        <div class="container" , style="float:left;">
 
-    <div id="jobpost">
-        {% for jobs in jobs_post %}}
-            <div class="column">
-                <div class="card">
-                    <h2>{{ jobs.compname }}</h2>
-                    <p class="title"><strong>👨‍🍳</strong>{{ jobs.jtitle }}</p>
-                    <p><strong>📍</strong>{{ jobs.location }}</p>
-                    <p><strong>Salary 💰 :</strong> {{ jobs.salary }}</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> {{ jobs.phno }}</button>
-                    </p>
+            <!--loop to retrieve data from database-->
+            {% for jobs in jobs_post %}
+                <div class="column picture-item" data-title="Driver">
+                    <div class="picture-item__inner">
+                        <div class="aspect">
+                            <div class="aspect__inner">
+                                <div class="card">
+                                    &nbsp;
+                                    <div class="picture-item__details">
+                                        <h2>{{ jobs.compname }}</h2>
+                                        <p class="picture-item__title"><strong>🚘</strong>{{ jobs.jtitle }}</p>
+                                        <p><strong>📍</strong>Kathmandu</p>
+                                        <p><strong>Salary 💰 :</strong> Rs 17,000</p>
+                                        <p>
+                                            <button class="btn draw-border"
+                                                    onclick="window.location.href='/seekers/apply'">Apply
+                                            </button>
+                                        </p>
+                                        <p>
+                                            <button class="btn draw-border"><strong>✆</strong> 986857289</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
-    </div>
 
+                </div>
+                </div>
+                </body>
+            {% endfor %}
 {% endblock content %}

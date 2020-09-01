@@ -24,7 +24,6 @@ urlpatterns = [
     # urls of main_app
     path("", include('main_app.urls')),
 
-
 ]
 if settings.DEBUG:
     urlpatterns += [

@@ -97,23 +97,25 @@
                     {% csrf_token %}
                     <div class="formGroup">
                         <input autocomplete="off" type="text" name="email" class="formGroupStyle"
-                               id="username_or_email" placeholder="Email" value="{{ candidateCreate.username }}" required>
+                               id="username_or_email" placeholder="Email" value="{{ candidateCreate.username }}"
+                               required>
                     </div>
                     <div class="formGroup">
                         <input name="password" type="password" class="password required formGroupStyle"
-                               id="login_password" placeholder="Password" value="{{ candidateCreate.password }}" required>
+                               id="login_password" placeholder="Password" value="{{ candidateCreate.password }}"
+                               required>
                     </div>
-{#                    <div class="row formGroup info">#}
-{#                        <div class="col-sm-6 col-xs-6">#}
-{#                            <label for="user-remember-field" class="remember">#}
-{#                                <input type="checkbox" name="remember" id="user-remember-field" value="true"> Keep me#}
-{#                                signed in </label>#}
-{#                        </div>#}
-{#                        <div class="col-sm-6 col-xs-6 text-right">#}
-{#                            <a class="text-theme back-link LostPassword" href="#forgetPasswordCointainer"#}
-{#                               title="Forgot Password" onclick="ShowPasswordCointainer()">Lost Your Password?</a>#}
-{#                        </div>#}
-{#                    </div>#}
+                    {#                    <div class="row formGroup info">#}
+                    {#                        <div class="col-sm-6 col-xs-6">#}
+                    {#                            <label for="user-remember-field" class="remember">#}
+                    {#                                <input type="checkbox" name="remember" id="user-remember-field" value="true"> Keep me#}
+                    {#                                signed in </label>#}
+                    {#                        </div>#}
+                    {#                        <div class="col-sm-6 col-xs-6 text-right">#}
+                    {#                            <a class="text-theme back-link LostPassword" href="#forgetPasswordCointainer"#}
+                    {#                               title="Forgot Password" onclick="ShowPasswordCointainer()">Lost Your Password?</a>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                     <div class="formGroup">
                         <input type="submit" class="Button SubmitButton">
                     </div>
@@ -122,7 +124,7 @@
                         <div class="inner-social">
                             <div class="FacebookBox">
                                 <a class="FacebookButton" href="#">Facebook</a>
-{#                                {% provider_login_url "facebook" method="oauth2" %}#}
+                                {#                                {% provider_login_url "facebook" method="oauth2" %}#}
 
                             </div>
                             <div class="GoogleBox">
@@ -182,25 +184,32 @@
                 </div>
 
                 <div class="formGroup formSpaceGap">
-                        <div class="formButtonGroup"><input type="button" class="Button CandidateButton active_role" value="Candidate" tabindex="100" onclick="ShowForm()"></div>
-                        <div class="formButtonGroup"><input type="button" class="Button EmployerButton" value="Employer" tabindex="101" onclick="ShowForm()"></div>
+                    <div class="formButtonGroup"><input type="button" class="Button CandidateButton active_role"
+                                                        value="Candidate" tabindex="100" onclick="ShowForm()"></div>
+                    <div class="formButtonGroup"><input type="button" class="Button EmployerButton" value="Employer"
+                                                        tabindex="101" onclick="ShowForm()"></div>
                 </div>
 
                 <!-- Candidate create  -->
-                <form name="signupForm" method="post" action='{% url 'candidatecreate' %}' id="candidateForm" class="signupForm candidateForm">
+                <form name="signupForm" method="post" action='{% url 'candidatecreate' %}' id="candidateForm"
+                      class="signupForm candidateForm">
                     {% csrf_token %}
 
                     <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="username" id="register-username" placeholder="Username *" value="{{ candidateCreate.username }}" required>
+                        <input type="text" class="formGroupStyle" name="username" id="register-username"
+                               placeholder="Username *" value="{{ candidateCreate.username }}" required>
                     </div>
                     <div class="formGroup">
-                        <input type="email" class="formGroupStyle" name="email" id="register-email" placeholder="Email *" value="{{ candidateCreate.email }}" required>
+                        <input type="email" class="formGroupStyle" name="email" id="register-email"
+                               placeholder="Email *" value="{{ candidateCreate.email }}" required>
                     </div>
                     <div class="formGroup">
-                        <input type="password" class="formGroupStyle" name="password" id="register-password" placeholder="Password *" value="{{ candidateCreate.password }}" required>
+                        <input type="password" class="formGroupStyle" name="password" id="register-password"
+                               placeholder="Password *" value="{{ candidateCreate.password }}" required>
                     </div>
-                     <div class="formGroup SelectWrapper">
-                        <select id="mySelect register-candidate-category" class="Select ShowCandidate" name="category" tabindex="-1" required>
+                    <div class="formGroup SelectWrapper">
+                        <select id="mySelect register-candidate-category" class="Select ShowCandidate" name="category"
+                                tabindex="-1" required>
                             <option selected name="Select Category">Select Category</option>
                             <option name="Accounting / Finance">Accounting / Finance</option>
                             <option name="Automotive Jobs">Automotive Jobs</option>
@@ -213,40 +222,50 @@
                         </select>
                     </div>
                     <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="company_name" id="register-company_name" placeholder="Company Name" value="{{ candidateCreate.company_name }}"required>
+                        <input type="text" class="formGroupStyle" name="company_name" id="register-company_name"
+                               placeholder="Company Name" value="{{ candidateCreate.company_name }}" required>
                     </div>
                     <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="phone_no" id="register-phone" placeholder="Phone" value="{{ candidateCreate.phone_no }}"required>
+                        <input type="text" class="formGroupStyle" name="phone_no" id="register-phone"
+                               placeholder="Phone" value="{{ candidateCreate.phone_no }}" required>
                     </div>
                     <div class="formGroup">
                         <button type="submit" class="Button SubmitButton">Register now</button>
                     </div>
                 </form>
 
-				 <!-- Employee -->
-                <form name="signupForm" method="post" action='/employeecreate' id="employeeForm" class="signupForm employeeForm" style="display: none;">
+                <!-- Employee -->
+                <form name="signupForm" method="post" action='/employeecreate' id="employeeForm"
+                      class="signupForm employeeForm" style="display: none;">
                     {% csrf_token %}
 
                     <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="username" id="register-username" placeholder="Username *">
+                        <input type="text" class="formGroupStyle" name="username" id="register-username"
+                               placeholder="Username *">
                     </div>
                     <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="email" id="register-email" placeholder="Email *">
+                        <input type="text" class="formGroupStyle" name="email" id="register-email"
+                               placeholder="Email *">
                     </div>
                     <div class="formGroup">
-                        <input type="password" class="formGroupStyle" name="password" id="password" placeholder="Password *">
+                        <input type="password" class="formGroupStyle" name="password" id="password"
+                               placeholder="Password *">
                     </div>
                     <div class="formGroup">
-                        <input type="password" class="formGroupStyle" name="confirm_password" id="confirmpassword" placeholder="Confirm Password *">
+                        <input type="password" class="formGroupStyle" name="confirm_password" id="confirmpassword"
+                               placeholder="Confirm Password *">
                     </div>
                     <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="company_name" id="register-company-name" placeholder="Company Name">
+                        <input type="text" class="formGroupStyle" name="company_name" id="register-company-name"
+                               placeholder="Company Name">
                     </div>
                     <div class="formGroup">
-                        <input type="text" class="formGroupStyle" name="phone_no" id="register-phone" placeholder="Phone">
+                        <input type="text" class="formGroupStyle" name="phone_no" id="register-phone"
+                               placeholder="Phone">
                     </div>
                     <div class="formGroup SelectWrapper">
-                        <select id="mySelect register-candidate-category" class="Select ShowCandidate" name="category" tabindex="-1">
+                        <select id="mySelect register-candidate-category" class="Select ShowCandidate" name="category"
+                                tabindex="-1">
                             <option selected name="Select Category">Select Category</option>
                             <option name="Accounting / Finance">Accounting / Finance</option>
                             <option name="Automotive Jobs">Automotive Jobs</option>
@@ -260,7 +279,9 @@
                     </div>
                     <div class="formGroup">
                         <label for="register-terms-and-conditions">
-                            <input type="checkbox" name="terms_and_conditions" value="on" id="register-terms-and-conditions" required="">You accept our <a href="#">Terms and Conditions and Privacy Policy</a></label>
+                            <input type="checkbox" name="terms_and_conditions" value="on"
+                                   id="register-terms-and-conditions" required="">You accept our <a href="#">Terms and
+                            Conditions and Privacy Policy</a></label>
                     </div>
 
                     <div class="formGroup">

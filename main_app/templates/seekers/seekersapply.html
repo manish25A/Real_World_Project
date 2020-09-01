@@ -9,68 +9,55 @@
         <div class="container">
             <div class="row1">
                 <div class="tstbox">
-                    <div class="formf" action="/">
-                        <h2>Candidate Detail</h2>
-                        <div class="item">
-                            <p>Name<span class="required">*</span></p>
-                            <div class="name-item">
-                                <input type="text" name="name" placeholder="First" required/>
-                                <input type="text" name="name" placeholder="Last" required/>
-                            </div>
-                        </div>
-                        <div class="contact-item">
+                    <div class="formf">
+                        <form method="post" action="/seekers/apply">
+                            {% csrf_token %}
+                            <h2>Candidate Detail</h2>
                             <div class="item">
-                                <p>Email<span class="required">*</span></p>
-                                <input type="text" name="name" required/>
-                            </div>
-                            <div class="item">
-                                <p>Phone<span class="required">*</span></p>
-                                <input type="text" name="name" required/>
-                            </div>
-                            <div class="item">
-                                <p>Profession<span class="required">*</span></p>
-                                <input type="text" name="name" required/>
-                            </div>
-                            <div class="item">
-                                <p>Location<span class="required">*</span></p>
-                                <input type="text" name="name" required/>
-                            </div>
-                        </div>
 
-                        <div class="question">
-                            <p>What is your current employment status?<span class="required">*</span></p>
-                            <div class="question-answer">
-                                <div>
-                                    <input type="radio" value="none" id="radio_1" name="status" required/>
-                                    <label for="radio_1" class="radio"><span>Employed</span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" value="none" id="radio_2" name="status" required/>
-                                    <label for="radio_2" class="radio"><span>Self-Employed</span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" value="none" id="radio_3" name="status" required/>
-                                    <label for="radio_3" class="radio"><span>Unemployed</span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" value="none" id="radio_4" name="status" required/>
-                                    <label for="radio_4" class="radio"><span>Student</span></label>
+
+                                <p>Name<span class="required">*</span></p>
+                                <div class="name-item">
+                                    <input type="text" name="seekerfname" placeholder="First" required/>
+                                    <input type="text" name="seekerlname" placeholder="Last" required/>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <p>Submit your photo by providing your photo URL or attach file:</p>
-                            <input type="file" name="file" accept="file/*">
-                        </div>
-                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                        <div class="btn-block">
-                            <button type="submit" href="/">Post</button>
-                        </div>
+                            <div class="contact-item">
+                                <div class="item">
+                                    <p>Email<span class="required">*</span></p>
+                                    <input type="text" name="seekeremail" required/>
+                                </div>
+                                <div class="item">
+                                    <p>Phone<span class="required">*</span></p>
+                                    <input type="text" name="seekerphone" required/>
+                                </div>
+                                <div class="item">
+                                    <p>Profession<span class="required">*</span></p>
+                                    <input type="text" name="seekerprofession" required/>
+                                </div>
+                                <div class="item">
+                                    <p>Location<span class="required">*</span></p>
+                                    <input type="text" name="seekeraddress" required/>
+                                </div>
+
+                            </div>
+                                  <div class="btn-block">
+                <button type="submit">Post</button>
+            </div>
+
+
+                        </form>
+
                     </div>
                 </div>
-                </body>
+
             </div>
+            &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+
         </div>
+    </div>
+    </div>
+    </div>
     </div>
 
 {% endblock content %}

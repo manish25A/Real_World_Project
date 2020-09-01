@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -38,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_app.apps.MainAppConfig',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,6 +50,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Real_World_Project.urls'
+
 
 TEMPLATES = [
     {
@@ -76,23 +77,7 @@ WSGI_APPLICATION = 'Real_World_Project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'ENFORCE_SCHEMA': False,
         'NAME': 'RealWorldProject',
-        'USER': 'RealWorldProject',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': 27017,
-        'AUTH_MECHANISM': 'SCRAM-SHA-1',
-        'LOGGING': {
-            'version': 1,
-            'loggers': {
-                'djongo': {
-                    'level': 'DEBUG',
-                    'propogate': False,
-
-                }
-            }
-        }
     }
 }
 
