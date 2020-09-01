@@ -1,265 +1,44 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
+    <body>
+    <div style="height: 113px;"></div>
+    <!--search -->
+    <input class="textfield filter__search js-shuffle-search" type="Searchs" name="Searchs"
+           placeholder="Search Jobs......" pattern=".*\S.*" required>
+    <div id="conta" class="row ">
+        <div class="container" , style="float:left;">
 
-    <div class="container">
-        <div class="row">
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>CG AutoCenter</h2>
-                    <p class="title"><strong>🚘</strong>Driver</p>
-                    <p><strong>📍</strong>Kathmandu</p>
-                    <p><strong>Salary 💰 :</strong> Rs 17,000</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
+            <!--loop to retrieve data from database-->
+            {% for jobs in jobs_post %}
+                <div class="column picture-item" data-title="Driver">
+                    <div class="picture-item__inner">
+                        <div class="aspect">
+                            <div class="aspect__inner">
+                                <div class="card">
+                                    &nbsp;
+                                    <div class="picture-item__details">
+                                        <h2>{{ jobs.compname }}</h2>
+                                        <p class="picture-item__title"><strong>🚘</strong>{{ jobs.jtitle }}</p>
+                                        <p><strong>📍</strong>Kathmandu</p>
+                                        <p><strong>Salary 💰 :</strong> Rs 17,000</p>
+                                        <p>
+                                            <button class="btn draw-border"
+                                                    onclick="window.location.href='/seekers/apply'">Apply
+                                            </button>
+                                        </p>
+                                        <p>
+                                            <button class="btn draw-border"><strong>✆</strong> 986857289</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Neo Institute</h2>
-                    <p class="title"><strong>👩‍🏫</strong>Teacher</p>
-                    <p><strong>📍</strong>Kathmandu</p>
-                    <p><strong>Salary 💰 :</strong> Rs 25,000</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>H20 Clothings</h2>
-                    <p class="title"><strong>👨‍💼</strong>Salesman</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Rs 12,000</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Davis Motors</h2>
-                    <p class="title"><strong>🔧</strong>Bike Mechanic</p>
-                    <p><strong>📍</strong>Kathmandu</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    &nbsp;
-                    <h2>Thapa Cafe</h2>
-                    <p class="title"><strong>👨‍🍳</strong>Cook</p>
-                    <p><strong>📍</strong>Chitwan</p>
-                    <p><strong>Salary 💰 :</strong> Negotiable</p>
-                    <p>
-                        <button class="btn draw-border">Apply</button>
-                    </p>
-                    <p>
-                        <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!-- pagination -->
-        <div class="center">
-            <ul class="pagination">
-                <li><a href="tryit.asp-filename=trycss_ex_pagination_center.html#">«</a></li>
-                <li><a href="tryit.asp-filename=trycss_ex_pagination_center.html#">1</a></li>
-                <li><a class="active" href="tryit.asp-filename=trycss_ex_pagination_center.html#">2</a></li>
-                <li><a href="tryit.asp-filename=trycss_ex_pagination_center.html#">3</a></li>
-                <li><a href="tryit.asp-filename=trycss_ex_pagination_center.html#">4</a></li>
-                <li><a href="tryit.asp-filename=trycss_ex_pagination_center.html#">5</a></li>
-                <li><a href="tryit.asp-filename=trycss_ex_pagination_center.html#">6</a></li>
-                <li><a href="tryit.asp-filename=trycss_ex_pagination_center.html#">7</a></li>
-                <li><a href="tryit.asp-filename=trycss_ex_pagination_center.html#">»</a></li>
-            </ul>
-        </div>
-    </div>
 
-    </div>
+                </div>
+                </div>
+                </body>
+            {% endfor %}
 {% endblock content %}

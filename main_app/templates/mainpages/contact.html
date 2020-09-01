@@ -1,158 +1,61 @@
 {% extends 'base.html' %}
-<body>
-{% block  content %}
+{% load static %}
+{% block content %}
+    <div style="height: 150px;"></div>
 
-
-    <div class="site-wrap">
-
-        <div class="site-mobile-menu">
-            <div class="site-mobile-menu-header">
-                <div class="site-mobile-menu-close mt-3">
-                    <span class="icon-close2 js-menu-toggle"></span>
-                </div>
-            </div>
-            <div class="site-mobile-menu-body"></div>
-        </div> <!-- .site-mobile-menu -->
-
-
-        <div class="site-navbar-wrap js-site-navbar bg-white">
-
-            <div class="container">
-                <div class="site-navbar bg-light">
-                    <div class="py-1">
-                        <div class="row align-items-center">
-                            <div class="col-2">
-                                <h2 class="mb-0 site-logo"><a href="index.html">hire<strong class="font-weight-bold">Pros</strong>
-                                </a></h2>
-                            </div>
-                            <div class="col-10">
-                                <nav class="site-navigation text-right" role="navigation">
-                                    <div class="container">
-                                        <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
-                                                                                                      class="site-menu-toggle js-menu-toggle text-black"><span
-                                                class="icon-menu h3"></span></a></div>
-
-                                        <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                            <li><a href="../providers/professionals.html">Browse Candidates</a></li>
-                                            <li class="has-children">
-                                                <a href="#">For Employees</a>
-                                                <ul class="dropdown arrow-top">
-                                                    <li><a href="Jobs.html">Jobs</a></li>
-                                                    <li><a href="JobsForm.html">Apply For A Job</a></li>
-                                                    <li><a href="../providers/jobpost.html">Post a Job</a></li>
-                                                    <li><a href="login.html">Employeer Profile</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="#"><span
-                                                    class="bg-primary text-white py-3 px-4 rounded"> <strong>👤</strong> Login</span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="wrappe">
+        <div class="contnt">
+            <h1>CONTACT FORM</h1>
+            <p>Connect with us by sending your views.</p>
         </div>
 
-        <div style="height: 150px;"></div>
-
-        <section id="contact-section">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <p>Email us and keep upto date with our latest news</p>
-                <div class="contact-form">
-
-                    <!-- First grid -->
-                    <div>
-                        <i class="fa fa-map-marker"></i><span class="form-info">  New Baneshwor, Kathmandu </span><br>
-                        <i class="fa fa-phone"> </i><span class="form-info">  01-7286466</span><br>
-                        <i class="fa fa-envelope"></i><span class="form-info">  hirespro@gmail.com</span>
+        <div class="form">
+            <form action="/contactpage/save" method="post" >
+                {% csrf_token %}
+                <div class="top-form">
+                    <div class="inner-form">
+                        <div class="label">Name</div>
+                        <label>
+                            <input type="text" name="contactname" placeholder="Your Name">
+                        </label>
                     </div>
-
-                    <!-- second grid -->
-                    <div>
-                        <form>
-                            <input type="text" placeholder="Your Name" required>
-                            <input type="text" placeholder="Last Name"><br>
-                            <input type="Email" placeholder="Email" required><br>
-                            <input type="text" placeholder="Subject of this message"><br>
-                            <textarea name="message" placeholder="Message" rows="5" required></textarea><br>
-                            <button class="submit">Send Message</button>
-                        </form>
+                    <div class="inner-form">
+                        <div class="label">Email</div>
+                        <label>
+                            <input type="text" name="contactemail" placeholder="Example@gmail.com">
+                        </label>
+                    </div>
+                    <div class="inner-form">
+                        <div class="label">Phone</div>
+                        <label>
+                            <input type="text" name="contactphoneno" placeholder="+977-98********">
+                        </label>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        </br></br></br>
-
-
-        <footer class="site-footer">
-            <div class="container">
-
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="footer-heading mb-4 text-white">About</h3>
-                        <p>JobFind.Com focuses on creating Employment Opportunities,Consulting,Training, as well as to
-                            provide Professionals of several fields to various users around the Nation through a Digital
-                            Platform.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h3 class="footer-heading mb-4 text-white">Quick Menu</h3>
-                                <ul class="list-unstyled">
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Sustainability</a></li>
-                                    <li><a href="#">News</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h3 class="footer-heading mb-4 text-white">Categories</h3>
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Full Time</a></li>
-                                    <li><a href="#">Freelance</a></li>
-                                    <li><a href="#">Temporary</a></li>
-                                    <li><a href="#">Internship</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-2">
-                        <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social</h3></div>
-                        <div class="col-md-12">
-                            <p>
-                                <a href="#" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-                                <a href="#" class="p-2"><span class="icon-twitter"></span></a>
-                                <a href="#" class="p-2"><span class="icon-instagram"></span></a>
-                                <a href="#" class="p-2"><span class="icon-vimeo"></span></a>
-
-                            </p>
-                        </div>
+                <div class="middle-form">
+                    <div class="inner-form">
+                        <div class="label">Subject</div>
+                        <label>
+                            <input type="text" name="subject" placeholder="Subject">
+                        </label>
                     </div>
                 </div>
-                <div class="row pt-5 mt-5 text-center">
-                    <div class="col-md-12">
-                        <p>
-                            Copyright &copy;
-                            <script data-cfasync="false"
-                                    src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-                            <script>document.write(new Date().getFullYear());</script>
-                            All Rights</a>
-                        </p>
-                    </div>
 
+                <div class="bottom-form">
+                    <div class="inner-form">
+                        <div class="label">Message</div>
+                        <label>
+                            <textarea name="message" placeholder="Your Message"></textarea>
+                        </label>
+                    </div>
                 </div>
-            </div>
-        </footer>
+
+                <div class="btn-block">
+                    <button type="submit">Post</button>
+                </div>
+            </form>
+        </div>
+
     </div>
-{% endblock %}
-</body>
+{% endblock content %}

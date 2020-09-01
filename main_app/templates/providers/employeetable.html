@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <body>
+
+    <div style="height: 150px;"></div>
+    <div class="mobile_nav">
+        <div class="nav_bar">
+            <i class="fa fa-bars nav_btn"></i>
+        </div>
+        <div class="mobile_nav_items">
+            <a href="providersdash.html"><strong>🏢</strong><span> Company Profile</span></a>
+            <a href="../jobpost.html"><strong>💼</strong><span> Post Job</span></a>
+            <a class="actve" href="employeetable.html"><strong>📝</strong><span> Manage Jobs</span></a>
+            <a href="../professionalpost.html"><strong>📁</strong><span> Post Candidiate</span></a>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="profile_info">
+            <h4>Company Name</h4>
+        </div>
+        <a href="providersdash.html"><strong>🏢</strong><span> Company Profile</span></a>
+        <a href="../jobpost.html"><strong>💼</strong><span> Post Job</span></a>
+        <a class="actve" href="employeetable.html"><strong>📝</strong><span> Manage Jobs</span></a>
+        <a href="../professionalpost.html"><strong>📁</strong><span> Post Candidiate</span></a>
+    </div>
+
+
+    <div class="content">
+        <table class="order-tabletable">
+            <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Post</th>
+                <th>Salary</th>
+                <th>Cancel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Thapa Cafe</td>
+                <td>Cook</td>
+                <td>Rs 17000</td>
+                <td>
+                    <button type="submit"><strong>❌</strong></button>
+                </td>
+            </tr>
+            <tr>
+                <td>H20 Clothings</td>
+                <td>Salesman</td>
+                <td>Rs 17000</td>
+                <td>
+                    <button type="submit"><strong>❌</strong></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Davis Motors</td>
+                <td>Bike Mechanic</td>
+                <td>Rs 17000</td>
+                <td>
+                    <button type="submit"><strong>❌</strong></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

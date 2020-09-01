@@ -4,7 +4,9 @@
     <div class="container">
         <div class="row1">
             <div class="testbox">
-                <div class="form" action="/">
+
+                <form class="form" name="jobpostform" method="post" action="{% url 'jobpostformdata' %}">
+                    {% csrf_token %}
                     <div class="banner">
                         <h1>Job Application Form</h1>
                     </div>
@@ -18,42 +20,34 @@
                     </div>
                     <div class="item">
                         <p>Phone</p>
-                        <input type="text" name="name" placeholder="Phone number"/>
+                        <input type="text" name="phno" placeholder="Phone number"/>
                     </div>
                     <div class="item">
                         <p>Email</p>
-                        <input type="text" name="name" placeholder="Email"/>
+                        <input type="email" name="email" placeholder="Email"/>
                     </div>
                     <div class="item">
                         <p>Company name</p>
-                        <input type="text" name="name" placeholder="Company name"/>
+                        <input type="text" name="compname" placeholder="Company name"/>
                     </div>
                     <div class="item">
                         <p>Address</p>
-                        <input type="text" name="name" placeholder="Address"/>
+                        <input type="text" name="address" placeholder="Address"/>
                     </div>
                     <h2>Job Details</h2>
                     <div class="item">
                         <p>Job Title</p>
-                        <input type="text" name="name" placeholder="Job Title"/>
+                        <input type="text" name="jtitle" placeholder="Job Title"/>
                     </div>
                     <div class="item">
                         <p>Salary</p>
-                        <input type="text" name="name" placeholder="Salary"/>
+                        <input type="text" name="salary" placeholder="Salary"/>
                     </div>
                     <div class="item">
                         <p>Location</p>
-                        <input type="text" name="name" placeholder="📍 Location"/>
+                        <input type="text" name="location" placeholder="📍 Location"/>
                     </div>
-                    <h2>Job Poster Details</h2>
-                    <div class="item">
-                        <p>Contact Name</p>
-                        <input type="text" name="name"/>
-                    </div>
-                    <div class="item">
-                        <p>Phone</p>
-                        <input type="text" name="name"/>
-                    </div>
+
                     <div class="question">
                         <p>Privacy Policy<span class="required">*</span></p>
                         <div class="question-answer checkbox-item">
@@ -65,9 +59,9 @@
                         </div>
                     </div>
                     <div class="btn-block">
-                        <button type="submit" href="/">Post</button>
+                        <button type="submit">Post</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

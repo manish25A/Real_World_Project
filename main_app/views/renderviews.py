@@ -1,78 +1,19 @@
-from django.contrib import messages
-from django.core.exceptions import ObjectDoesNotExist
-from django.views.defaults import page_not_found
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+
+# main pages
+from main_app.models.models import jobpostmodel, Provider
+
+
+def index(request):
+    return render(request, 'mainpages/home.html')
 
 
 def error_404(request):
     return render(request, 'mainpages/404.html')
 
 
-def index(request):
-    try:
-        return render(request, 'mainpages/home.html')
-    except page_not_found:
-        return redirect(request, error_404)
-
-
-def dashboard(request):
-    return render(request, 'mainpages/dashboard.html')
-
-
-def AdminDashboard(request):
-    return render(request, 'providers/admindash.html')
-
-
-def CreateAdmin(request):
-    return render(request, 'providers/createAdmin.html')
-
-def apply(request):
-    return render(request, 'providers/professionalpost.html')
-
-
-
-def ViewAdmin(request):
-    return render(request, 'providers/adminView.html')
-
-
-def UpdateAdmin(request):
-    return render(request, 'providers/editAdmin.html')
-
-
-def DeleteAdmin(request):
-    return render(request, 'providers/editAdmin.html')
-
-
-def CustomerDashboard(request):
-    return render(request, 'professionals/customerdash.html')
-
-
-def CreateCustomer(request):
-    return render(request, 'professionals/createCustomer.html')
-
-
-def ViewCustomer(request):
-    return render(request, 'professionals/customerView.html')
-
-
-def UpdateCustomer(request):
-    return render(request, 'professionals/editCustomer.html')
-
-
-def DeleteCustomer(request):
-    return render(request, 'professionals/editCustomer.html')
-
-
-def login(request):
-    return render(request, 'mainpages/login.html')
-
-
-def about(request):
+def aboutus(request):
     return render(request, 'mainpages/aboutus.html')
-
-
-def professional(request):
-    return render(request, 'providers/professionals.html')
 
 
 def contactpage(request):
@@ -80,23 +21,42 @@ def contactpage(request):
 
 
 def jobspage(request):
-    return render(request, 'mainpages/Jobs.html')
+    jobspost = jobpostmodel.objects.all()
+    return render(request, 'mainpages/Jobs.html', {'jobs_post': jobspost})
+
+
+# providers
+
+def providerdashboard(request, id):
+    dash = Provider.objects.get(compname=id)
+    return render(request, 'providers/providersdash.html', {'dash': dash})
+
+
+def jobstable(request):
+    return render(request, 'providers/employeetable.html')
 
 
 def jobpost(request):
     return render(request, 'providers/jobpost.html')
 
 
-def aboutus(request):
-    return render(request, 'mainpages/aboutus.html')
+def providerlogin(request):
+    return render(request, 'providers/providerslogin.html')
 
 
-def candidatelogin(request):
-    try:
-        request.session['email'] = request.POST['email']
-        request.session['password'] = request.POST['password']
-        return redirect('/dashboard')
-    except ObjectDoesNotExist:
-        messages.warning(request, "Please Enter valid email or  password.")
-        return redirect('/login')
-        pass
+def professional(request):
+    return render(request, 'providers/professionals.html')
+
+
+# seekers
+
+def seekerslogin(request):
+    return render(request, 'seekers/loginjobseeker.html')
+
+
+def jobsform(request):
+    return render(request, 'seekers/JobsForm.html')
+
+
+def seekerapply(request):
+    return render(request, 'seekers/seekersapply.html')

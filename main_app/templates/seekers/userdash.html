@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div style="height: 150px;"></div>
+    <div class="mobile_nav">
+        <div class="nav_bar">
+            <i class="fa fa-bars nav_btn"></i>
+        </div>
+        <div class="mobile_nav_items">
+            <a class="actve" href="{% url 'index' %}"><strong>🖥️</strong><span> Profile</span></a>
+            <a href="{% url 'index' %}"><strong>📊</strong><span> Tables</span></a>
+            <a href="#"><strong>📙</strong><span> About</span></a>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="profile_info">
+            <img src="images/bsal.jpg" class="profile_image" alt="user picture">
+            <h4>{{ dash.seekerusername}}</h4>
+        </div>
+        <a class="actve" href="userdash.html"><strong>🖥️</strong><span> Profile</span></a>
+        <a href="/appliedlist"><strong>📊</strong><span> Tables</span></a>
+        <a href="#"><strong>📙</strong><span> About</span></a>
+    </div>
+
+
+
+    <div class="content">
+
+        <div class="forms" action="index.html" method="post">
+
+            <h1>Your Profile</h1>
+
+            <fieldset>
+                <form >
+                    {% csrf_token %}
+                    <legend><span class="number">1</span>Basic Information</legend>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="seekerusername" value="{{ dash.seekerusername }}">
+
+                    <label for="mail">Email:</label>
+                    <input type="email" id="mail" name="seekeremail" value="{{ dash.seekeremail }}">
+
+                    <label for="address">Password:</label>
+                    <input type="Password" id="Password" name="seekerpassword" value="{{ dash.seekerpassword }}">
+                    <button type="submit">Apply</button>
+
+                </form>
+            </fieldset>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.nav_btn').click(function () {
+                $('.mobile_nav_items').toggleClass('active');
+            });
+        });
+    </script>
+{% endblock content %}
