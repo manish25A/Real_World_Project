@@ -1,73 +1,108 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}
+    Dashboard
+{% endblock %}
+
 {% block content %}
-    <body>
-    <div style="height: 150px;"></div>
-    <div class="mobile_nav">
-        <div class="nav_bar">
-            <i class="fa fa-bars nav_btn"></i>
-        </div>
-        <div class="mobile_nav_items">
-            <a class="actve" href="providersdash.html"><strong>🏢</strong><span> Company Profile</span></a>
-            <a href="../jobpost.html"><strong>💼</strong><span> Post Job</span></a>
-            <a href="employeetable.html"><strong>📝</strong><span> Manage Jobs</span></a>
-            <a href="../professionalpost.html"><strong>📁</strong><span> Post Candidiate</span></a>
-        </div>
-    </div>
 
-    <div class="sidebar">
-        <div class="profile_info">
-            <h4>Company Name</h4>
-        </div>
-        <a class="actve" href="providersdash.html"><strong>🏢</strong><span> Company Profile</span></a>
-        <a href="{% url 'jobpost' %}"><strong>💼</strong><span> Post Job</span></a>
-        <a href="{% url '' %}"><strong>📝</strong><span> Manage Jobs</span></a>
-        <a href="../professionalpost.html"><strong>📁</strong><span> Post Candidiate</span></a>
-    </div>
-
-
-    <div class="content">
-
-        <div class="top-form">
-            <div class="inner-form">
-                <div class="label">Name</div>
-                <input type="text" name="name" value="{{ dash.name }}" placeholder="Your Name">
-            </div>
-            <div class="inner-form">
-                <div class="label">Company Name</div>
-                <input type="text" name="compname" value="{{ dash.compname }}" placeholder="Company Name">
-            </div>
-            <div class="inner-form">
-                <div class="label">Email</div>
-                <input type="text" name="email" value="{{ dash.email }}" placeholder="Example@gmail.com">
-            </div>
-            <div class="inner-form">
-                <div class="label">Founded Year</div>
-                <input type="date" name="fyear" value="{{ dash.fyear }}"placeholder="Founded Year">
-            </div>
-            <div class="inner-form">
-                <div class="label">Phone</div>
-                <input type="text" name="phoneno" value="{{ dash.phoneno }}" placeholder="+977-98********">
-            </div>
-            <div class="inner-form">
-                <div class="label">Password</div>
-                <input type="password" name="password" value="{{ dash.password }}" placeholder="Password">
+    <section class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="heading">Dashboard</h1>
+                    <p class="lead text-center">All created jobs</p>
+                </div>
             </div>
         </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-right mb-5">
+                    <a href="{% url 'employer-jobs-create' %}" class="btn btn-outline-white-primary">
+                        <i class="fa fa-plus"></i>Add new position
+                    </a>
+                </div>
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-client-dashboard">
+                            <thead>
+                            <tr>
+                                <th>Job title</th>
+                                <th>Position filled</th>
+                                <th>Date posted</th>
+                                <th>Date expiring</th>
+                                <th>Applicants</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for job in jobs %}
 
-        <div class="middle-form">
-            <div class="inner-form">
-                <div class="label">Company Address</div>
-                <input type="text"name="address" value="{{ dash.address }}" placeholder="Company Address">
+                                <tr>
+                                    <th><a href="{% url 'jobs-detail' job.id %}">{{ job.title }}</a>
+                                    </th>
+                                    <td>
+                                        {% if job.filled %}
+                                            <span class="badge badge-success">Filled</span>
+                                        {% else %}
+                                            <span class="badge badge-secondary">Not Filled</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ job.created_at }}</td>
+                                    <td>{{ job.last_date }}</td>
+                                    <td>
+                                        <a href="{% url 'employer-dashboard-applicants' job.id %}"
+                                           class="btn btn-success">
+                                            <i class="fa fa-users"></i>{{ job.applicants.count }}
+                                            <span class="hidden-xs hidden-sm">Applicants</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-outline-white-secondary">
+                                            <i class="fa fa-edit"></i>Edit
+                                        </a>
+                                        <br>
+                                        {% if job.filled %}
+                                            <a href="{% url 'job-mark-filled' job.id %}"
+                                               class="btn btn-outline-white-secondary">
+                                                <i class="fa fa-check-circle-o"></i>
+                                                <span class="hidden-xs hidden-sm">Filled</span>
+                                            </a><br>
+                                        {% else %}
+                                            <a href="{% url 'job-mark-filled' job.id %}"
+                                               class="btn btn-outline-white-secondary">
+                                                <i class="fa fa-check-circle-o"></i>
+                                                <span class="hidden-xs hidden-sm">Mark as </span>filled
+                                            </a><br>
+                                        {% endif %}
+                                        <a href="#" class="btn btn-outline-white-secondary">
+                                            <i class="fa fa-times-circle-o"></i>Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pages">
+                        <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-4 mb-4">
+                            <ul class="pagination">
+                                <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span
+                                        aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
+                                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                                <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span
+                                        aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="bottom-form">
-            <div class="inner-form">
-                <div class="label">Company Description</div>
-                <textarea name="description" value="{{ dash.description }}" placeholder="Your Company Description"></textarea>
-            </div>
-        </div>
-        <button type="submit">Update</button>
-    </div>
-{% endblock content %}
+{% endblock %}

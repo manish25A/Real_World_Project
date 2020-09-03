@@ -1,44 +1,82 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
-    <body>
-    <div style="height: 113px;"></div>
-    <!--search -->
-    <input class="textfield filter__search js-shuffle-search" type="Searchs" name="Searchs"
-           placeholder="Search Jobs......" pattern=".*\S.*" required>
-    <div id="conta" class="row ">
-        <div class="container" , style="float:left;">
+{% block title %}
+    Home
+{% endblock %}
 
-            <!--loop to retrieve data from database-->
-            {% for jobs in jobs_post %}
-                <div class="column picture-item" data-title="Driver">
-                    <div class="picture-item__inner">
-                        <div class="aspect">
-                            <div class="aspect__inner">
-                                <div class="card">
-                                    &nbsp;
-                                    <div class="picture-item__details">
-                                        <h2>{{ jobs.compname }}</h2>
-                                        <p class="picture-item__title"><strong>🚘</strong>{{ jobs.jtitle }}</p>
-                                        <p><strong>📍</strong>Kathmandu</p>
-                                        <p><strong>Salary 💰 :</strong> Rs 17,000</p>
-                                        <p>
-                                            <button class="btn draw-border"
-                                                    onclick="window.location.href='/seekers/apply'">Apply
-                                            </button>
-                                        </p>
-                                        <p>
-                                            <button class="btn draw-border"><strong>✆</strong> 986857289</button>
-                                        </p>
+{% block content %}
+
+<body>
+ <div style="height: 113px;"></div>
+<div class="site-wrap">
+
+    <section class="job-form-section job-form-section--image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="job-form-box">
+                        <h2 class="heading">Find a <span class="accent">job</span> you will
+                            <span class="accent">love</span>.
+                        </h2>
+                        <form id="job-main-form" method="get" action="{% url 'searh' %}" class="job-main-form">
+                            <div class="controls">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="profession">Position</label>
+                                            <input type="text" id="profession" name="position"
+                                                   placeholder="Position you are looking for" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="location">Location</label>
+                                            <input type="text" id="location" name="location"
+                                                   placeholder="Any particular location?" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="submit"
+                                                class="btn btn-outline-white-primary job-main-form__button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-light-gray">
+        <div class="container">
 
-                </div>
-                </div>
-                </body>
-            {% endfor %}
-{% endblock content %}
+            <div class="row featured align-items-stretch">
+                {% for job in jobs %}
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="box-image-text bg-visible full-height">
+
+                            <div class="content">
+                                <h5><a href="{% url 'jobs-detail' job.id %}">{{ job.title }}</a></h5>
+                                <p class="featured__details"><i class="fa fa-map-marker job__location"></i>
+                                    {{ job.location }}
+                                    {% if job.type == '1' %}
+                                        <span class="badge featured-badge badge-success">Full time</span>
+                                    {% elif job.type == '2' %}
+                                        <span class="badge featured-badge badge-primary">Part time</span>
+                                    {% else %}
+                                        <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
+                                    {% endif %}
+                                </p>
+                                <p>{{ job.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+{% endblock %}

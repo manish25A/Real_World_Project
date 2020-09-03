@@ -48,7 +48,7 @@
                 <div class="py-1">
                     <div class="row align-items-center">
                         <div class="col-2">
-                            <h2 class="mb-0 site-logo"><a href="{% url 'index' %}">hire<strong class="font-weight-bold">Pros</strong>
+                            <h2 class="mb-0 site-logo"><a href="{% url 'home' %}">hire<strong class="font-weight-bold">Pros</strong>
                             </a></h2>
                         </div>
                         <div class="col-10">
@@ -59,23 +59,61 @@
                                             class="icon-menu h3"></span></a></div>
 
                                     <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                        <li><a href="{% url 'professional' %}">Browse Candidates</a></li>
+                                        <li><a href="{% url 'jobs' %}">All Jobs</a></li>
                                         <li class="has-children">
                                             <a href="#">For Employees</a>
                                             <ul class="dropdown arrow-top">
-                                                <li><a href="{% url 'jobspage' %}">Jobs</a></li>
-                                                <li><a href="{% url 'jobpost' %}">Post a Job</a></li>
+                                                <li><a href="{% url 'jobs' %}">Your Dashboard</a></li>
+                                                <li><a href="#">Post a Job</a></li>
                                                 <li><a href="#">Employeer Profile</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="{% url 'contactpage' %}">Contact</a></li>
-                                        <li class="has-children"><a href="#"><span
+
+                                        {#employer#}
+                                        {% if request.user.is_authenticated and request.user.role == 'employee' %}
+                                            <li class="has-children"><a href="{% url 'employer-dashboard' %}"><span
+                                                    class="bg-primary text-white py-3 px-4 rounded"> <strong>👤</strong>
+                                                {% if request.user.role == 'employee' %}
+                                                    {{ request.user.first_name }} {{ request.user.last_name }}
+                                                {% else %}
+                                                    {{ request.user.first_name }}
+                                                {% endif %}</span></a>
+                                                <ul class="dropdown arrow-top">
+                                                    <li><a href="{% url 'accounts:employer-profile-update' %}">Edit Profile</a></li>
+                                                    <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+
+                                                </ul>
+
+                                            </li>
+
+                                        {% elif request.user.is_authenticated and request.user.role == 'employer' %}
+                                            <li class="has-children"><a href="{% url 'employer-dashboard' %}"><span
+                                                    class="bg-primary text-white py-3 px-4 rounded"> <strong>👤</strong>
+                                                {% if request.user.role == 'employee' %}
+                                                    {{ request.user.first_name }} {{ request.user.last_name }}
+                                                {% else %}
+                                                    {{ request.user.first_name }}
+                                                {% endif %}</span></a>
+                                                <ul class="dropdown arrow-top">
+                                                    <li><a href="{% url 'employer-dashboard' %}">DashBoard</a></li>
+                                                    <li><a href="{% url 'employer-jobs-create' %}">Post a Job</a></li>
+                                                    <li><a href="{% url 'employer-all-applicants' %}">All Applicants</a></li>
+                                                </ul>
+
+                                            </li>
+                                            {#employe#}
+                                        {% else %}
+                                            <li class="has-children"><a href="{% url 'accounts:login' %}"><span
                                                 class="bg-primary text-white py-3 px-4 rounded"> <strong>👤</strong> Login</span></a>
                                             <ul class="dropdown arrow-top">
-                                                <li><a href="{% url 'seekerslogin' %}">Login as JobFinder</a></li>
-                                                <li><a href="{% url 'employerlogin' %}">Login as JobProvider</a></li>
+                                                <li><a href="{% url 'accounts:employee-register' %}">Login as
+                                                    JobFinder</a></li>
+                                                <li><a href="{% url 'accounts:employer-register' %}">Login as
+                                                    JobProvider</a></li>
                                             </ul>
-                                        </li>
+                                        {% endif %}
+
                                     </ul>
                                 </div>
                             </nav>

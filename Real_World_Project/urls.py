@@ -23,11 +23,7 @@ urlpatterns = [
 
     # urls of main_app
     path("", include('main_app.urls')),
+    path("", include('accounts.urls')),
 
 ]
-if settings.DEBUG:
-    urlpatterns += [
-        re_path(r'^media/(?P<path>.*)$', serve, {
-            'document_root': settings.MEDIA_ROOT,
-        }),
-    ]
+

@@ -1,33 +1,34 @@
 from django import forms
 
-from main_app.models.models import Seeker, ContactPage, jobpostmodel, seekerapply, Provider
+from main_app.models.newmodels import Job, Applicant
 
 
-class seekerform(forms.ModelForm):
+class CreateJobForm(forms.ModelForm):
     class Meta:
-        model = Seeker
-        fields = "__all__"
+        model = Job
+        exclude = ('user', 'created_at',)
+        labels = {
+            "last_date": "Last Date",
+            "company_name": "Company Name",
+            "company_description": "Company Description"
+        }
+
+    def is_valid(self):
+        valid = super(CreateJobForm, self).is_valid()
+
+        # if already valid, then return True
+        if valid:
+            return valid
+        return valid
+
+    def save(self, commit=True):
+        job = super(CreateJobForm, self).save(commit=False)
+        if commit:
+            job.save()
+        return job
 
 
-class providerform(forms.ModelForm):
+class ApplyJobForm(forms.ModelForm):
     class Meta:
-        model = Provider
-        fields = "__all__"
-
-
-class contactform(forms.ModelForm):
-    class Meta:
-        model = ContactPage
-        fields = "__all__"
-
-
-class jobpostform(forms.ModelForm):
-    class Meta:
-        model = jobpostmodel
-        fields = "__all__"
-
-
-class seekerapplyform(forms.ModelForm):
-    class Meta:
-        model = seekerapply
-        fields = "__all__"
+        model = Applicant
+        fields = ('job',)
