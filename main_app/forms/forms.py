@@ -1,6 +1,6 @@
 from django import forms
 
-from main_app.models.newmodels import Job, Applicant
+from main_app.models.models import Job, Applicant
 
 
 class CreateJobForm(forms.ModelForm):

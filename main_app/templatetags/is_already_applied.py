@@ -1,6 +1,6 @@
 from django import template
 
-from main_app.models.newmodels import Applicant
+from main_app.models.models import Applicant
 
 register = template.Library()
 

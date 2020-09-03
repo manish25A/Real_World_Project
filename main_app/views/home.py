@@ -7,7 +7,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, CreateView
 
 from main_app.forms.forms import ApplyJobForm
-from main_app.models.newmodels import Job, Applicant
+from main_app.models.models import Job, Applicant
 
 
 class HomeView(ListView):
@@ -40,7 +40,7 @@ class JobViews(ListView):
 
 class SearchView(ListView):
     model = Job
-    template_name = 'jobs/search.html'
+    template_name = 'mainpages/search.html'
     context_object_name = 'jobs'
 
     def get_queryset(self):

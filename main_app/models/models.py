@@ -1,57 +1,39 @@
-from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
+
+from accounts.models import User
+
+JOB_TYPE = (
+    ('1', "Full time"),
+    ('2', "Part time"),
+    ('3', "Internship"),
+)
 
 
-class Seeker(models.Model):
-    seeker = models.ForeignKey(User, on_delete=models.CASCADE())
-    seekerusername = models.CharField(max_length=50, unique=True)
-    seekeremail = models.CharField(max_length=50, unique=True)
-    seekerpassword = models.CharField(max_length=50)
-
-    class Meta:
-        pass
-
-
-class seekerapply(models.Model):
-    user_id = models.ForeignKey(Seeker, on_delete=models.CASCADE)
-    fname = models.CharField(max_length=50)
-    lname = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
-    phoneno = models.CharField(max_length=50)
-    profession = models.CharField(max_length=50)
-    location = models.CharField(max_length=50)
-
-
-class Provider(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-    compname = models.CharField(max_length=50, unique=True)
-    email = models.CharField(max_length=50)
-    fyear = models.DateField(max_length=50)
-    phoneno = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
-    address = models.CharField(max_length=50)
-    description = models.CharField(max_length=50)
+class Job(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=300)
+    description = models.TextField()
+    location = models.CharField(max_length=150)
+    type = models.CharField(choices=JOB_TYPE, max_length=10)
+    last_date = models.DateTimeField()
+    company_name = models.CharField(max_length=100)
+    company_description = models.CharField(max_length=300)
+    created_at = models.DateTimeField(default=timezone.now)
+    filled = models.BooleanField(default=False)
+    salary = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
-class jobpostmodel(models.Model):
-    provider_id = models.ForeignKey(Provider, on_delete=models.CASCADE)
-    fname = models.CharField(max_length=50, default="name")
-    lname = models.CharField(max_length=50)
-    phno = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
-    compname = models.CharField(max_length=50)
-    address = models.CharField(max_length=50)
-    jtitle = models.CharField(max_length=50)
-    salary = models.CharField(max_length=50)
-    location = models.CharField(max_length=50)
+class Applicant(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='applicants')
+    created_at = models.DateTimeField(default=timezone.now)
 
+    class Meta:
+        unique_together = ['user', 'job']
 
-class ContactPage(models.Model):
-    contactname = models.CharField(max_length=50)
-    contactemail = models.EmailField(unique=True)
-    contactphoneno = models.CharField(max_length=20)
-    subject = models.CharField(max_length=20)
-    message = models.TextField(max_length=500)
+    def __str__(self):
+        return self.user.get_full_name()

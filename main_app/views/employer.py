@@ -7,7 +7,7 @@ from django.views.generic import CreateView, ListView
 
 from main_app.decorators import user_is_employer
 from main_app.forms.forms import CreateJobForm
-from main_app.models.newmodels import Job, Applicant
+from main_app.models.models import Job, Applicant
 
 
 class DashboardView(ListView):
@@ -76,7 +76,7 @@ class JobCreateView(CreateView):
 
 class ApplicantsListView(ListView):
     model = Applicant
-    template_name = 'jobs/employer/all-applicants.html'
+    template_name = 'providers/all-applicants.html'
     context_object_name = 'applicants'
 
     def get_queryset(self):

@@ -10,34 +10,35 @@
                 <div class="col-12" data-aos="fade">
                     <h1>Find Job &nbsp;</h1>
                     &nbsp;
-
-                    <div class="row mb-3">
-                        <div class="col-md-9">
-                            <div class="row">
-                                <div class="col-md-8 mb-3 mb-md-0">
-                                    <input type="text" class="mr-3 form-control border-0 px-4"
-                                           placeholder="Job Title"> &nbsp; &nbsp;
-                                </div>
-                                <div class="col-md-8 mb-3 col-md-0">
-                                    <div class="input-wrap">
-                                        <span class="icon icon-room"></span>&nbsp;
-                                        <input type="text"
-                                               class="form-control form-control-block search-input  border-0 px-4"
-                                               id="autocomplete" placeholder="city, province or region"
-                                               onFocus="geolocate()"> &nbsp;
+                    <form id="job-main-form" method="get" action="{% url 'searh' %}" class="job-main-form">
+                        <div class="row mb-3">
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-md-8 mb-3 mb-md-0">
+                                     <div class="form-group">
+                                            <label for="profession"></label>
+                                            <input type="text" id="profession" name="position"
+                                                   placeholder="Position you are looking for" class="form-control">
+                                    </div>
+                                    <div class="col-md-8 mb-3 col-md-0">
+                                        <div class="input-wrap">
+                                            <span class="icon icon-room"></span>&nbsp;
+                                             <label for="location"></label>
+                                            <input type="text" id="location" name="location"
+                                                   placeholder="Any particular location?" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
+                            </div>&nbsp;
+                            &nbsp;
+                            <div class="col-md-3 mb-3 col-md-0">
+                                <b>
+                                    <button type="submit" class="btn btn-search btn-primary btn-block"
+                                            href="{% url 'jobs' %}"> Find
+                                    </button>
+                                </b>
                             </div>
-                        </div>&nbsp;
-                        &nbsp;
-                        <div class="col-md-3 mb-3 col-md-0">
-                            <b>
-                                <button type="submit" class="btn btn-search btn-primary btn-block"
-                                        href="{% url 'jobs' %}"> Find
-                                </button>
-                            </b>
                         </div>
-                    </div>
                     </form>
                 </div>
             </div>
@@ -205,172 +206,111 @@
     </div>
 
 
-    <div class="site-section site-block-feature bg-light">
-        <div class="container">
-
-            <div class="text-center mb-5 section-heading">
-                <h2>Success Stories</h2>
-            </div>
-
-            <div class="d-block d-md-flex border-bottom">
-                <div class="text-center p-4" data-aos="fade">
-                    <h2 class="h4">More Jobs Every Day</h2>
-                    <p>Start up hurdles and solution <br>
-                        By Ujjwal Humagain May 8,2020</p>
-                    <span class="flaticon-worker display-3 mb-3 d-block text-primary"></span>
-                    <h2 class="h4">Mechanic By Profession</h2>
-                    <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
-                </div>
-                <div class="text-center p-4 item" data-aos="fade">
-                    <h2 class="h4">More Jobs Every Day</h2>
-                    <p>Start up hurdles and solution <br>
-                        By Ujjwal Humagain May 8,2020</p>
-                    <span class="flaticon-wrench display-3 mb-3 d-block text-primary"></span>
-                    <h2 class="h4">Plumber By Profession</h2>
-                    <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
-                </div>
-                <div class="d-block d-md-flex">
-                    <div class="text-center p-3 item" data-aos="fade">
-                        <h2 class="h4">Create your carrer</h2>
-                        <p>Know your job abilities <br>
-                            By Manish BC May 8,2020</p>
-                        <span class="flaticon-stethoscope display-3 mb-3 d-block text-primary"></span>
-                        <h2 class="h4">Doctor By Profession</h2>
-                        <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
-                    </div>
-                    <div class="text-center p-3 item" data-aos="fade">
-                        <h2 class="h4">More Job </h2>
-                        <p>Find Your Category<br>
-                            By Abinab Chhetri May 8,2020</p>
-                        <span class="flaticon-calculator display-3 mb-3 d-block text-primary"></span>
-                        <h2 class="h4">Banker By Profession</h2>
-                        <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="site-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 ">
-                    <h2 class="mb-5">Top Job Offering Companies Of Month</h2>
+                    <h2 class="mb-5">Main Highlights</h2>
                 </div>
             </div>
             <div class="nonloop-block-16 owl-carousel">
+                {% for job in jobs %}
+                    <div class="border rounded p-4 bg-white">
+                        <h2 class="h5">{{ job.company_name }}</h2>
+                        {% if job.type == '1' %}
+                            <span class="badge featured-badge badge-success">Full time</span>
+                        {% elif job.type == '2' %}
+                            <span class="badge featured-badge badge-primary">Part time</span>
+                        {% else %}
+                            <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
+                        {% endif %}
+                        <p>
+                            <span class="d-block"><span class="icon-suitcase"></span> {{ Bank }}</span>
+                            <span class="d-block"><span class="icon-room"></span> Chitwan</span>
+                            <span class="d-block"><span
+                                    class="icon-money mr-1"></span> Rs 55,000/- &mdash; Rs 70,000/- </span>
+                        </p>
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi neque fugit
+                            tempora,
+                            numquam voluptate veritatis odit id, iste eum culpa alias, ut officiis omnis itaque ad, rem
+                            sunt
+                            doloremque molestias.</p>
 
-                <div class="border rounded p-4 bg-white">
-                    <h2 class="h5">Rastriya Banijya Bank Limited</h2>
-                    <p><span class="border border-info rounded p-1 px-2 text-info">Banking</span></p>
-                    <p>
-                        <span class="d-block"><span class="icon-suitcase"></span> Bank</span>
-                        <span class="d-block"><span class="icon-room"></span> Chitwan</span>
-                        <span class="d-block"><span
-                                class="icon-money mr-1"></span> Rs 55,000/- &mdash; Rs 70,000/- </span>
-                    </p>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi neque fugit tempora,
-                        numquam voluptate veritatis odit id, iste eum culpa alias, ut officiis omnis itaque ad, rem sunt
-                        doloremque molestias.</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto text-center mb-5 section-heading">
+                        <h2 class="mb-5">Experts For Suggestion</h2>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
+                            <img src="{{ img.person1 }}" class="img-thumbnail" alt="person">
+                            <h2>CEO and Founder Of hiresPRo</h2>
+                            <p>
+                                <span class="d-block"><span></span> 🎓 Harvard University</span>
+                                <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
+                                <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
+                                <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
+                                        class="icon-instagram mr-1"></span></span></span>
+                            </p>
+                        </a>
 
-                <div class="border rounded p-4 bg-white">
-                    <h2 class="h5">Javascript Fullstack Developer</h2>
-                    <p><span class="border border-info rounded p-1 px-2 text-info">Freelance</span></p>
-                    <p>
-                        <span class="d-block"><span class="flaticon-computer-graphic"></span> Deutch IT Solution</span>
-                        <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
-                        <span class="d-block"><span
-                                class="icon-money mr-1"></span> Rs 85,000/- &mdash; Rs 95,000/-</span>
-                    </p>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus accusamus
-                        necessitatibus praesentium voluptate natus excepturi rerum, autem. Magnam laboriosam, quam
-                        sapiente laudantium iure sit ea! Tenetur, quasi, praesentium. Architecto, eum.</p>
-                </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
+                            <img src="images/person3.jpg" class="img-thumbnail" alt="person">
+                            <h2>Chief Of hiresPRo</h2>
+                            <p>
+                                <span class="d-block"><span></span> 🎓 Tribhuwan University</span>
+                                <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
+                                <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
+                                <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
+                                        class="icon-instagram mr-1"></span></span></span>
 
-                <div class="border rounded p-4 bg-white">
-                    <h2 class="h5">Bir Hospital</h2>
-                    <p><span class="border border-info rounded p-1 px-2 text-info"> Nurse</span></p>
-                    <p>
-                        <span class="d-block"><span class="icon-suitcase"></span> Nurse</span>
-                        <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
-                        <span class="d-block"><span class="icon-money mr-1"></span> Rs 25000 &mdash; Rs 35000</span>
-                    </p>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse, quam
-                        consectetur ipsum quibusdam ullam ab nesciunt, doloribus voluptatum neque iure perspiciatis vel
-                        vero illo consequatur facilis, fuga nobis corporis.</p>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
+                            <img src="images/person2.jpg" class="img-thumbnail" alt="person">
+                            <h2>Manager Of hiresPRo</h2>
+                            <p>
+                                <span class="d-block"><span></span> 🎓 Coventry University</span>
+                                <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
+                                <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
+                                <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
+                                        class="icon-instagram mr-1"></span></span></span>
+
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
+                            <img src="images/person1.jpg" class="img-thumbnail" alt="person">
+                            <h2>Expert Of hiresPRo</h2>
+                            <p>
+                                <span class="d-block"><span></span> 🎓 Gothe University</span>
+                                <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
+                                <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
+
+                                <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
+                                        class="icon-instagram mr-1"></span></span></span>
+
+                            </p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="site-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2 class="mb-5">Experts For Suggestion</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                    <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
-                        <img src="{{ img.person1 }}" class="img-thumbnail" alt="person">
-                        <h2>CEO and Founder Of hiresPRo</h2>
-                        <p>
-                            <span class="d-block"><span></span> 🎓 Harvard University</span>
-                            <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
-                            <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
-                            <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
-                                    class="icon-instagram mr-1"></span></span></span>
-                        </p>
-                    </a>
-
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                    <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
-                        <img src="images/person3.jpg" class="img-thumbnail" alt="person">
-                        <h2>Chief Of hiresPRo</h2>
-                        <p>
-                            <span class="d-block"><span></span> 🎓 Tribhuwan University</span>
-                            <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
-                            <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
-                            <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
-                                    class="icon-instagram mr-1"></span></span></span>
-
-                        </p>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                    <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
-                        <img src="images/person2.jpg" class="img-thumbnail" alt="person">
-                        <h2>Manager Of hiresPRo</h2>
-                        <p>
-                            <span class="d-block"><span></span> 🎓 Coventry University</span>
-                            <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
-                            <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
-                            <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
-                                    class="icon-instagram mr-1"></span></span></span>
-
-                        </p>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                    <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
-                        <img src="images/person1.jpg" class="img-thumbnail" alt="person">
-                        <h2>Expert Of hiresPRo</h2>
-                        <p>
-                            <span class="d-block"><span></span> 🎓 Gothe University</span>
-                            <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
-                            <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
-
-                            <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
-                                    class="icon-instagram mr-1"></span></span></span>
-
-                        </p>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
-
 {% endblock content %}
