@@ -3,14 +3,12 @@
 {% block content %}
 
 {% block title %}
-    Employee Register
 {% endblock %}
 
 
     <div class="col-lg-6 offset-3">
         <div class="box">
-            <h3 class="heading">New account</h3>
-            <p class="lead">Not our registered yet?</p>
+
 
             {% if form.errors %}
                 {% for field in form %}
@@ -28,10 +26,14 @@
                     </div>
                 {% endfor %}
             {% endif %}
-            <form action="" method="post">
+        <div class="row1">
+ <div class="testbox">
+       <div class="forms" action="index.html" method="post">
+                 <h1 class="title">  New Account Registration </h1>
+                 <h3>  Signup as Job Finder</h3>
+                <form action="" method="post">
                 {% csrf_token %}
                 {% for field in form %}
-
 
                         <div class="form-group">
                             <label for="id_{{ field.name }}">{{ field.label }}</label>
@@ -42,13 +44,24 @@
                                    placeholder="{{ field.field.widget.attrs.placeholder }}">
                         </div>
 
+
                 {% endfor %}
                 <div class="text-center">
                     <button type="submit" class="btn btn-outline-white-primary"><i class="fa fa-user-md"></i> Register
                     </button>
                 </div>
             </form>
+    </div>
+    </div>
+</div>
+
+
         </div>
     </div>
 
+
+
+
+
+    <div style="height: 113px;"></div>
 {% endblock content %}

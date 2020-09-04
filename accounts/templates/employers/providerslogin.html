@@ -5,15 +5,13 @@
     <body>
 
     {% block title %}
-        Employee Register
     {% endblock %}
 
     <div class="container">
 
         <div class="col-lg-6 offset-3">
             <div class="box">
-                <h3 class="heading">New account</h3>
-                <p class="lead">Not our registered yet?</p>
+
 
                 {% if form.errors %}
                     {% for field in form %}
@@ -31,7 +29,13 @@
                         </div>
                     {% endfor %}
                 {% endif %}
-                <form action="" method="post">
+
+               <div class="row1">
+                   <div class="testbox">
+                 <div class="form" action="/">
+   <h1 class="title">  New Account Registration </h1>
+                 <h3>  Signup as Job Provider</h3>
+                       <form action="" method="post">
                     {% csrf_token %}
                     {% for field in form %}
 
@@ -52,8 +56,14 @@
                         </button>
                     </div>
                 </form>
+                </div>
+               </div>
+                       </div>
+
+
+
             </div>
         </div>
-
+  <div style="height: 113px;"></div>
     </div>
 {% endblock content %}
