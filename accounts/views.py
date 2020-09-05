@@ -11,7 +11,7 @@ class RegisterEmployeeView(CreateView):
     model = User
     form_class = EmployeeRegistrationForm
 
-    template_name = 'employees/employeesignup.html'
+    template_name = 'employees/loginjobseeker.html'
     success_url = '/'
 
     extra_context = {
@@ -34,13 +34,13 @@ class RegisterEmployeeView(CreateView):
             user.save()
             return redirect('accounts:login')
         else:
-            return render(request, 'employees/employeesignup.html', {'form': form})
+            return render(request, 'employees/loginjobseeker.html', {'form': form})
 
 
 class RegisterEmployerView(CreateView):
     model = User
     form_class = EmployerRegistrationForm
-    template_name = 'employers/providersignup.html'
+    template_name = 'employers/providerslogin.html'
     success_url = '/'
 
     extra_context = {
@@ -63,7 +63,7 @@ class RegisterEmployerView(CreateView):
             user.save()
             return redirect('accounts:login')
         else:
-            return render(request, 'employers/providersignup.html', {'form': form})
+            return render(request, 'employers/providerslogin.html', {'form': form})
 
 
 class LoginView(FormView):

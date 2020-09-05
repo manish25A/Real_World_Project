@@ -30,7 +30,13 @@
                             <p>
                                 <span class="badge badge-info">Applied {{ applicant.created_at.astimezone }}</span>
                             </p>
-
+                            <div class="d-flex justify-content-between">
+                                <p class="intro"></p>
+                                <div class="image">
+                                    <img src="{% static 'img/avatar.png' %}" alt=""
+                                         class="img-fluid rounded-circle">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

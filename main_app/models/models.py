@@ -37,15 +37,3 @@ class Applicant(models.Model):
 
     def __str__(self):
         return self.user.get_full_name()
-
-
-class ContactPage(models.Model):
-    id = models.AutoField(primary_key=True)
-    contactname = models.CharField(max_length=50)
-    contactemail = models.EmailField(unique=True)
-    contactphoneno = models.CharField(max_length=20)
-    subject = models.CharField(max_length=20)
-    message = models.TextField(max_length=500)
-
-    def __str__(self):
-        return self.contactname

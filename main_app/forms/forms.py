@@ -1,6 +1,6 @@
 from django import forms
 
-from main_app.models.models import Job, Applicant, ContactPage
+from main_app.models.models import Job, Applicant
 
 
 class CreateJobForm(forms.ModelForm):
@@ -32,9 +32,3 @@ class ApplyJobForm(forms.ModelForm):
     class Meta:
         model = Applicant
         fields = ('job',)
-
-
-class ContactForm(forms.ModelForm):
-    class Meta:
-        model = ContactPage
-        fields = "__all__"
