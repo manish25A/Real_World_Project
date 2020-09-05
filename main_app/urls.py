@@ -11,6 +11,7 @@ urlpatterns = [
     path('contactpage', contactpage, name='contactpage'),
     path('contactsave', contactsave, name='contactsave'),
     path('aboutus', home.aboutus, name='aboutus'),
+    path('job/delete/<int:id>', home.jobdelete, name='job-delete'),
 
     path('', HomeView.as_view(), name='home'),
     path('search', SearchView.as_view(), name='search'),
