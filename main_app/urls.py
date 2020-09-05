@@ -6,7 +6,7 @@ from main_app.views import render
 
 urlpatterns = [
     path('contactpage', render.contactpage, name='contactpage'),
-
+    path('aboutus', render.aboutpage, name='aboutus'),
 
     path('', HomeView.as_view(), name='home'),
     path('search', SearchView.as_view(), name='searh'),
