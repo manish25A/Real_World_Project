@@ -5,15 +5,24 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
 
+    <div class="mobile_nav">
+      <div class="nav_bar">
+        <i class="fa fa-bars nav_btn"> <a class="actve" href="#"><strong>🖥️</strong><span> Profile</span></a></i>
+      </div>
+      <div class="mobile_nav_items">
+       <a class="actve" href="#"><strong>🖥️</strong><span> Profile</span></a>
+      </div>
+    </div>
 
-        <div class="content">
-            <div class="container">
-                <div class="site-wrap">
-                    <div class="col-lg-6 offset-3">
+    <div class="sidebar">
+      <div class="profile_info">
+        <h4>Bishal Jung</h4>
+      </div>
+      <a class="actve" href="#"><strong>🖥️</strong><span> Profile</span></a>
+    </div>
+
                         <div class="box">
-                            <h3 class="heading">Edit Profile</h3>
                             {% if form.errors %}
                                 {% for field in form %}
                                     {% for error in field.errors %}
@@ -31,7 +40,13 @@
                                     </div>
                                 {% endfor %}
                             {% endif %}
-                            <form action="" method="post">
+
+
+                    <div class="forms" action="index.html" method="post">
+
+                            <h1>Your Profile</h1>
+                             <legend><span class="number">1</span>Basic Information</legend>
+                             <form action="" method="post">
                                 {% csrf_token %}
                                 {% for field in form %}
 
@@ -51,11 +66,9 @@
                                     </button>
                                 </div>
                             </form>
+
+      </div>
                         </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 {% endblock %}
