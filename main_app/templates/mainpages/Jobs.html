@@ -6,77 +6,147 @@
 
 {% block content %}
 
-<body>
- <div style="height: 113px;"></div>
-<div class="site-wrap">
+    <body>
 
-    <section class="job-form-section job-form-section--image">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="job-form-box">
-                        <h2 class="heading">Find a <span class="accent">job</span> you will
-                            <span class="accent">love</span>.
-                        </h2>
-                        <form id="job-main-form" method="get" action="{% url 'searh' %}" class="job-main-form">
-                            <div class="controls">
-                                <div class="row align-items-center">
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label for="profession">Position</label>
-                                            <input type="text" id="profession" name="position"
-                                                   placeholder="Position you are looking for" class="form-control">
+    <div class="site-wrap">
+
+        <section class="job-form-section job-form-section--image">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="job-form-box">
+                            <h2 class="heading">Find a <span class="accent">job</span> you will
+                                <span class="accent">love</span>.
+                            </h2>
+                            <form id="job-main-form" method="get" action="{% url 'main:search' %}"
+                                  class="job-main-form">
+                                <div class="controls">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="profession">Position</label>
+                                                <input type="text" id="profession" name="position"
+                                                       placeholder="Position you are looking for" class="form-control">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label for="location">Location</label>
-                                            <input type="text" id="location" name="location"
-                                                   placeholder="Any particular location?" class="form-control">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="location">Location</label>
+                                                <input type="text" id="location" name="location"
+                                                       placeholder="Any particular location?" class="form-control">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button type="submit"
-                                                class="btn btn-outline-white-primary job-main-form__button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
+                                        <div class="col-md-2">
+                                            <button type="submit"
+                                                    class="btn btn-outline-white-primary job-main-form__button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="bg-light-gray">
-        <div class="container">
+        </section>
+        <section>
 
-            <div class="row featured align-items-stretch">
-                {% for job in jobs %}
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="box-image-text bg-visible full-height">
+            <div class="container">
+                <div id="conta" class="row ">
 
-                            <div class="content">
-                                <h5><a href="{% url 'jobs-detail' job.id %}">{{ job.title }}</a></h5>
-                                <p class="featured__details"><i class="fa fa-map-marker job__location"></i>
-                                    {{ job.location }}
-                                    {% if job.type == '1' %}
-                                        <span class="badge featured-badge badge-success">Full time</span>
-                                    {% elif job.type == '2' %}
-                                        <span class="badge featured-badge badge-primary">Part time</span>
-                                    {% else %}
-                                        <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
-                                    {% endif %}
-                                </p>
-                                <p>{{ job.description }}</p>
+                    &nbsp;
+                    {% for job in jobs %}
+                        <div class="column picture-item">
+
+                            <div class="picture-item__inner">
+                                <div class="aspect">
+
+                                    <div class="aspect__inner">
+
+                                        <div class="card">
+                                            &nbsp;
+                                            <div class="picture-item__details">
+
+                                                <h2><a href="{% url 'main:jobs-detail' job.id %}">{{ job.title }}</a>
+                                                </h2>
+                                                <p class="picture-item__title">
+                                                <p class="featured__details"><i
+                                                        class="fa fa-map-marker job__location"></i>
+                                                    {{ job.location }}
+                                                    {% if job.type == '1' %}
+                                                        <span class="badge featured-badge badge-success">Full time</span>
+                                                    {% elif job.type == '2' %}
+                                                        <span class="badge featured-badge badge-primary">Part time</span>
+                                                    {% else %}
+                                                        <span style="color: #ffffff;"
+                                                              class="badge featured-badge badge-warning">Internship</span>
+                                                    {% endif %}</p>
+                                                <p><strong>📍</strong>Kathmandu</p>
+                                                <p><strong>Salary 💰 :</strong> {{ job.salary }}</p>
+                                                <p>
+                                                    <button class="btn draw-border"><strong>✆</strong> 986857289
+                                                    </button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
                             </div>
+
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    </section>
-</div>
-</body>
+        </section>
+        {% if is_paginated %}
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-4 mb-4">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a href="?page={{ page_obj.previous_page_number }}"
+                                       class="page-link">&laquo;</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link">&laquo;</a>
+                                </li>
+                            {% endif %}
+                            {% for i in page_obj.paginator.page_range %}
+                                {% if page_obj.number == i %}
+                                    <li class="page-item active">
+                                        <a class="page-link">{{ i }}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ page_obj.next_page_number }}"
+                                       class="page-link">&raquo;</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link">&raquo;</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+        <div style="height: 113px;"></div>
+    </body>
 {% endblock %}

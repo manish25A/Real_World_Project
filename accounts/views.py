@@ -11,7 +11,7 @@ class RegisterEmployeeView(CreateView):
     model = User
     form_class = EmployeeRegistrationForm
 
-    template_name = 'employees/loginjobseeker.html'
+    template_name = 'employees/seekersignup.html'
     success_url = '/'
 
     extra_context = {
@@ -34,13 +34,13 @@ class RegisterEmployeeView(CreateView):
             user.save()
             return redirect('accounts:login')
         else:
-            return render(request, 'employees/loginjobseeker.html', {'form': form})
+            return render(request, 'employees/seekersignup.html', {'form': form})
 
 
 class RegisterEmployerView(CreateView):
     model = User
     form_class = EmployerRegistrationForm
-    template_name = 'employers/providerslogin.html'
+    template_name = 'employers/providerssignup.html'
     success_url = '/'
 
     extra_context = {
@@ -63,7 +63,7 @@ class RegisterEmployerView(CreateView):
             user.save()
             return redirect('accounts:login')
         else:
-            return render(request, 'employers/providerslogin.html', {'form': form})
+            return render(request, 'employers/providerssignup.html', {'form': form})
 
 
 class LoginView(FormView):
@@ -74,9 +74,6 @@ class LoginView(FormView):
     form_class = UserLoginForm
     template_name = 'login.html'
 
-    extra_context = {
-        'title': 'Login'
-    }
 
     def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:

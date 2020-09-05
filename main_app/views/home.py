@@ -1,12 +1,13 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, CreateView
 
-from main_app.forms.forms import ApplyJobForm
+from main_app.forms.forms import ApplyJobForm,ContactForm
 from main_app.models.models import Job, Applicant
 
 
@@ -55,7 +56,7 @@ class JobListView(ListView):
     model = Job
     template_name = 'mainpages/Jobs.html'
     context_object_name = 'jobs'
-    paginate_by = 5
+    paginate_by = 8
 
 
 class JobDetailsView(DetailView):
@@ -111,3 +112,28 @@ class ApplyJobView(CreateView):
         form.instance.user = self.request.user
         form.save()
         return super().form_valid(form)
+
+
+
+def contactpage(request):
+    return render(request, 'mainpages/contact.html')
+
+
+def contactsave(request):
+    form = ContactForm(request.POST, request.FILES)
+    form.save()
+    return redirect(reverse_lazy("main:contactpage"))
+
+
+def jobdelete(request, id):
+    user = Job.objects.get(id=id)
+    user.delete()
+    return redirect('main:employer-dashboard')
+
+
+def aboutus(request):
+    return render(request, 'mainpages/aboutus.html')
+
+
+def aboutus(request):
+    return render(request, 'mainpages/aboutus.html')

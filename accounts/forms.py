@@ -152,13 +152,13 @@ class UserLoginForm(forms.Form):
             self.user = authenticate(email=email, password=password)
 
             if self.user is None:
-                raise forms.ValidationError("User Does Not Exist.")
+                raise forms.ValidationError("User or Password is not available.")
             if not self.user.check_password(password):
                 raise forms.ValidationError("Password Does not Match.")
             if not self.user.is_active:
                 raise forms.ValidationError("User is not Active.")
 
-        return super(UserLoginForm, self).clean(*args, **kwargs)
+        return super(UserLoginForm, self).clean()
 
     def get_user(self):
         return self.user
@@ -187,3 +187,4 @@ class EmployeeProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ["first_name", "last_name", "address"]
+

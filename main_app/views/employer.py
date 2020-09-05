@@ -1,6 +1,8 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView
@@ -51,7 +53,7 @@ class JobCreateView(CreateView):
     extra_context = {
         'title': 'Post New Job'
     }
-    success_url = reverse_lazy('employer-dashboard')
+    success_url = reverse_lazy('main:employer-dashboard')
 
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def dispatch(self, request, *args, **kwargs):
@@ -92,5 +94,7 @@ def filled(request, job_id=None):
         job.save()
     except IntegrityError as e:
         print(e.message)
-        return HttpResponseRedirect(reverse_lazy('employer-dashboard'))
-    return HttpResponseRedirect(reverse_lazy('employer-dashboard'))
+        return HttpResponseRedirect(reverse_lazy('main:employer-dashboard'))
+    return HttpResponseRedirect(reverse_lazy('main:employer-dashboard'))
+
+

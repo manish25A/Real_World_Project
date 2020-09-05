@@ -33,5 +33,5 @@ class EditProfileView(UpdateView):
         obj = self.request.user
         print(obj)
         if obj is None:
-            raise Http404("Job doesn't exists")
+            raise Http404("User doesn't exists")
         return obj

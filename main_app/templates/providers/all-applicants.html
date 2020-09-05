@@ -16,28 +16,43 @@
         </div>
     </section>
     <section>
+
         <div class="container">
             <div class="row">
                 {% for applicant in applicants %}
-                    <div class="col-lg-6">
-                        <div class="box applicant">
-                            <h4>{{ applicant.user.get_full_name }}</h4>
-                            <p><strong>Applied position: {{ applicant.job.title }}</strong></p>
-                            <a href="#" data-toggle="modal" data-target="#contact-modal"
-                               class="btn btn-outline-white-secondary btn-sm">
-                                <i class="fa fa-envelope"></i>Contact
-                            </a>
-                            <p>
-                                <span class="badge badge-info">Applied {{ applicant.created_at.astimezone }}</span>
-                            </p>
-                            <div class="d-flex justify-content-between">
-                                <p class="intro"></p>
-                                <div class="image">
-                                    <img src="{% static 'img/avatar.png' %}" alt=""
-                                         class="img-fluid rounded-circle">
+                    <div class="column picture-item">
+
+                        <div class="picture-item__inner">
+                            <div class="aspect">
+
+                                <div class="aspect__inner">
+
+                                    <div class="card">
+                                        &nbsp;
+                                        <div class="picture-item__details">
+
+                                            <div class="col-lg-auto">
+                                                <div class="box applicant">
+                                                    <h4>{{ applicant.user.get_full_name }}</h4>
+                                                    <p><strong>Applied position: {{ applicant.job.title }}</strong></p>
+                                                    <p><strong>Address: {{ applicant.user.address }}</strong></p>
+                                                    <a href="#" data-toggle="modal" data-target="#contact-modal"
+                                                       class="btn btn-outline-white-secondary btn-sm">
+                                                        <i class="fa fa-envelope"></i>Email:{{ applicant.user.email }}
+                                                    </a>
+                                                    <p>
+                                                        <span class="badge badge-info">Applied {{ applicant.created_at.astimezone }}</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
                 {% endfor %}
                 {% if is_paginated %}
@@ -81,7 +96,7 @@
                         </div>
                     </div>
                 {% else %}
-                    <h3>No Applicants</h3>
+                    <p> No applicants</p>
                 {% endif %}
             </div>
         </div>
