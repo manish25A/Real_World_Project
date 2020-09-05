@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-right mb-5">
-                    <a href="{% url 'employer-jobs-create' %}" class="btn btn-outline-white-primary">
+                    <a href="{% url 'main:employer-jobs-create' %}" class="btn btn-outline-white-primary">
                         <i class="fa fa-plus"></i>Add new position
                     </a>
                 </div>
@@ -40,7 +40,7 @@
                             {% for job in jobs %}
 
                                 <tr>
-                                    <th><a href="{% url 'jobs-detail' job.id %}">{{ job.title }}</a>
+                                    <th><a href="{% url 'main:jobs-detail' job.id %}">{{ job.title }}</a>
                                     </th>
                                     <td>
                                         {% if job.filled %}
@@ -52,31 +52,29 @@
                                     <td>{{ job.created_at }}</td>
                                     <td>{{ job.last_date }}</td>
                                     <td>
-                                        <a href="{% url 'employer-dashboard-applicants' job.id %}"
+                                        <a href="{% url 'main:employer-dashboard-applicants' job.id %}"
                                            class="btn btn-success">
                                             <i class="fa fa-users"></i>{{ job.applicants.count }}
                                             <span class="hidden-xs hidden-sm">Applicants</span>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-outline-white-secondary">
-                                            <i class="fa fa-edit"></i>Edit
-                                        </a>
+
                                         <br>
                                         {% if job.filled %}
-                                            <a href="{% url 'job-mark-filled' job.id %}"
+                                            <a href="{% url 'main:job-mark-filled' job.id %}"
                                                class="btn btn-outline-white-secondary">
                                                 <i class="fa fa-check-circle-o"></i>
                                                 <span class="hidden-xs hidden-sm">Filled</span>
                                             </a><br>
                                         {% else %}
-                                            <a href="{% url 'job-mark-filled' job.id %}"
+                                            <a href="{% url 'main:job-mark-filled' job.id %}"
                                                class="btn btn-outline-white-secondary">
                                                 <i class="fa fa-check-circle-o"></i>
                                                 <span class="hidden-xs hidden-sm">Mark as </span>filled
                                             </a><br>
                                         {% endif %}
-                                        <a href="#" class="btn btn-outline-white-secondary">
+                                        <a href="{% url 'main:job-delete' job.id %}" class="btn btn-outline-white-secondary">
                                             <i class="fa fa-times-circle-o"></i>Delete
                                         </a>
                                     </td>

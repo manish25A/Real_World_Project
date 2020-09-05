@@ -2,7 +2,10 @@
 {% load static %}
 
 {% block content %}
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     <div class="site-blocks-cover overlay" style="background-image: url('{% static 'images/hero_1.jpg' %}');">
         <div class="container">
@@ -10,40 +13,38 @@
                 <div class="col-12" data-aos="fade">
                     <h1>Find Job &nbsp;</h1>
                     &nbsp;
-                    <form id="job-main-form" method="get" action="{% url 'searh' %}" class="job-main-form">
-                        <div class="row mb-3">
-                            <div class="col-md-9">
-                                <div class="row">
-                                    <div class="col-md-8 mb-3 mb-md-0">
-                                     <div class="form-group">
-                                            <label for="profession"></label>
-                                            <input type="text" id="profession" name="position"
-                                                   placeholder="Position you are looking for" class="form-control">
-                                    </div>
-                                    <div class="col-md-8 mb-3 col-md-0">
-                                        <div class="input-wrap">
-                                            <span class="icon icon-room"></span>&nbsp;
-                                             <label for="location"></label>
-                                            <input type="text" id="location" name="location"
-                                                   placeholder="Any particular location?" class="form-control">
-                                        </div>
+                    <form id="job-main-form" method="get" action="{% url 'main:search' %}" class="job-main-form">
+                        <div class="controls">
+                            <div class="row align-items-center">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="profession"></label>
+                                        <input type="text" id="profession" name="position"
+                                               placeholder="Position you are looking for" class="form-control">
                                     </div>
                                 </div>
-                            </div>&nbsp;
-                            &nbsp;
-                            <div class="col-md-3 mb-3 col-md-0">
-                                <b>
-                                    <button type="submit" class="btn btn-search btn-primary btn-block"
-                                            href="{% url 'jobs' %}"> Find
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="location"></label>
+                                        <input type="text" id="location" name="location"
+                                               placeholder="Any particular location?" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit"
+                                            class="btn btn-outline-white-primary job-main-form__button">
+                                        <i class="fa fa-search"></i>
                                     </button>
-                                </b>
+                                </div>
                             </div>
                         </div>
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
+    </div>
     </div>
 
     <section class="services bg-light">
@@ -87,25 +88,37 @@
                 <div class="col-md-8 ftco-animate p-4 p-md-5 d-flex align-items-center">
 
                     <div class="tab-content pl-md-5" id="v-pills-tabContent">
-
                         <div class="tab-pane fade show active" id="v-pills-master" role="tabpanel"
                              aria-labelledby="v-pills-master-tab">
                             <h2 class="mb-4">Banks And Finance</h2>
                             <p class="lead">Banking and Finance industry is one of the most sought after career paths in
                                 Nepal. Over the past few weeks, various vacancies have been announced by leading banks,
                                 Insurance and financial institutions.</p>
+<<<<<<< Updated upstream
                             <p><a href="{% url 'jobs' %}" class="btn btn-primary">Learn More</a></p>
+=======
+                            <p><a href="{% url 'main:jobs' %}" class="btn btn-primary">Learn More</a></p>
+>>>>>>> Stashed changes
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-buffet" role="tabpanel"
                              aria-labelledby="v-pills-buffet-tab">
                             <span class="icon mb-3 d-block flaticon-tray"></span>
                             <h2 class="mb-4">Automotive Jobs</h2>
+<<<<<<< Updated upstream
                              <p class="lead">An Automotive Technician is responsible for the repair and
                                  preventive maintenance of automotive equipment.
                                  The Auto Mechanic can work on brakes, engines, steering, and electrical systems.
                                  An understanding of engines is essential, and prior automotive experience can be beneficial.</p>
                             <p><a href="{% url 'jobs' %}" class="btn btn-primary">Learn More</a></p>
+=======
+                            <p class="lead">An Automotive Technician is responsible for the repair and
+                                preventive maintenance of automotive equipment.
+                                The Auto Mechanic can work on brakes, engines, steering, and electrical systems.
+                                An understanding of engines is essential, and prior automotive experience can be
+                                beneficial.</p>
+                            <p><a href="{% url 'main:jobs' %}" class="btn btn-primary">Learn More</a></p>
+>>>>>>> Stashed changes
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-fitness" role="tabpanel"
@@ -113,8 +126,14 @@
                             <span class="icon mb-3 d-block flaticon-woman"></span>
                             <h2 class="mb-4">Construction</h2>
                             <p class="lead">The construction industry produces a wide range of products, and the
+<<<<<<< Updated upstream
                                 enterprises are equally diverse. However, the vast majority of enterprises involved in development of new sites.</p>
                             <p><a href="{% url 'jobs' %}" class="btn btn-primary">Learn More</a></p>
+=======
+                                enterprises are equally diverse. However, the vast majority of enterprises involved in
+                                development of new sites.</p>
+                            <p><a href="{% url 'main:jobs' %}" class="btn btn-primary">Learn More</a></p>
+>>>>>>> Stashed changes
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-reception" role="tabpanel"
@@ -126,50 +145,89 @@
                                 by electronic means and refers to all types of voice, data and video transmission.
                                 This is a broad term that includes a wide range of information transmitting
                                 technologies such as telephones (wired and wireless), microwave communications
+<<<<<<< Updated upstream
                                 , fiber optics, satellites, radio and television broadcasting, the internet and telegraphs.</p>
                             <p><a href="{% url 'jobs' %}" class="btn btn-primary">Learn More</a></p>
+=======
+                                , fiber optics, satellites, radio and television broadcasting, the internet and
+                                telegraphs.</p>
+                            <p><a href="{% url 'main:jobs' %}" class="btn btn-primary">Learn More</a></p>
+>>>>>>> Stashed changes
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-sea" role="tabpanel" aria-labelledby="v-pills-sea-tab">
                             <span class="icon mb-3 d-block flaticon-deck-chair"></span>
                             <h2 class="mb-4">Healthcare</h2>
+<<<<<<< Updated upstream
                              <p class="lead">Health care, health-care, or healthcare is the
                                  maintenance or improvement of health via the prevention, diagnosis, treatment, recovery, or
                                  cure of disease, illness, injury, and other physical and mental impairments in people.</p>
                             <p><a href="{% url 'jobs' %}" class="btn btn-primary">Learn More</a></p>
+=======
+                            <p class="lead">Health care, health-care, or healthcare is the
+                                maintenance or improvement of health via the prevention, diagnosis, treatment, recovery,
+                                or
+                                cure of disease, illness, injury, and other physical and mental impairments in
+                                people.</p>
+                            <p><a href="{% url 'main:jobs' %}" class="btn btn-primary">Learn More</a></p>
+>>>>>>> Stashed changes
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-spa" role="tabpanel" aria-labelledby="v-pills-spa-tab">
                             <span class="icon mb-3 d-block flaticon-spa"></span>
                             <h2 class="mb-4">Design, Art & Multimedia</h2>
+<<<<<<< Updated upstream
                              <p class="lead">Multimedia arts & design is the creation of images and content using the
                                  latest design techniques and
                                  technology. Multimedia art includes animation, audio, interactivity, still images, text, and video.</p>
                             <p><a href="{% url 'jobs' %}" class="btn btn-primary">Learn More</a></p>
+=======
+                            <p class="lead">Multimedia arts & design is the creation of images and content using the
+                                latest design techniques and
+                                technology. Multimedia art includes animation, audio, interactivity, still images, text,
+                                and video.</p>
+                            <p><a href="{% url 'main:jobs' %}" class="btn btn-primary">Learn More</a></p>
+>>>>>>> Stashed changes
                         </div>
                         <div class="tab-pane fade" id="v-pills-wifi" role="tabpanel" aria-labelledby="v-pills-wifi-tab">
                             <span class="icon mb-3 d-block flaticon-wifi-router"></span>
                             <h2 class="mb-4">Transportation</h2>
+<<<<<<< Updated upstream
                              <p class="lead">Transportation careers includes jobs in industries that
                                  transport passengers and cargo via plane, rail, bus, boat, transit system,
                                  and other modes of private and public transportation.
                                  Transportation jobs might also involve scenic and sightseeing transportation.</p>
                             <p><a href="{% url 'jobs' %}" class="btn btn-primary">Learn More</a></p>
+=======
+                            <p class="lead">Transportation careers includes jobs in industries that
+                                transport passengers and cargo via plane, rail, bus, boat, transit system,
+                                and other modes of private and public transportation.
+                                Transportation jobs might also involve scenic and sightseeing transportation.</p>
+                            <p><a href="{% url 'main:jobs' %}" class="btn btn-primary">Learn More</a></p>
+>>>>>>> Stashed changes
                         </div>
                         <div class="tab-pane fade" id="v-pills-resto" role="tabpanel"
                              aria-labelledby="v-pills-resto-tab">
                             <span class="icon mb-3 d-block flaticon-wifi-dico-ball"></span>
                             <h2 class="mb-4">Restaurant &amp; Bar</h2>
+<<<<<<< Updated upstream
                              <p class="lead">Bar staff – also referred to as bartenders –
                                  are mainly employed to serve drinks at pubs, restaurants and other
                                  establishments which are licensed to sell alcoholic beverages. The main duties of a bar
                                  worker is to attend the customer's needs, by either serving them drinks at the bar or with table service.</p>
                             <p><a href="{% url 'jobs' %}" class="btn btn-primary">Learn More</a></p>
+=======
+                            <p class="lead">Bar staff – also referred to as bartenders –
+                                are mainly employed to serve drinks at pubs, restaurants and other
+                                establishments which are licensed to sell alcoholic beverages. The main duties of a bar
+                                worker is to attend the customer's needs, by either serving them drinks at the bar or
+                                with table service.</p>
+                            <p><a href="{% url 'main:jobs' %}" class="btn btn-primary">Learn More</a></p>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
       <section class="ftco-section bg-light">
@@ -386,10 +444,10 @@
     </div>
 
 
-
     <div class="site-section">
         <div class="container">
             <div class="row">
+<<<<<<< Updated upstream
                <div class="container">
 
         <div class="text-center mb-5 section-heading">
@@ -433,104 +491,106 @@
         </div>
       </div>
       </div>
+=======
+                <div class="col-md-6 mx-auto text-center mb-5 ">
+                    <h2 class="mb-5">Top Jobs</h2>
+                </div>
+>>>>>>> Stashed changes
             </div>
             <div class="nonloop-block-16 owl-carousel">
                 {% for job in jobs %}
-                    <div class="border rounded p-4 bg-white">
-                        <h2 class="h5">{{ job.company_name }}</h2>
-                        {% if job.type == '1' %}
-                            <span class="badge featured-badge badge-success">Full time</span>
-                        {% elif job.type == '2' %}
-                            <span class="badge featured-badge badge-primary">Part time</span>
-                        {% else %}
-                            <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
-                        {% endif %}
-                        <p>
-                            <span class="d-block"><span class="icon-suitcase"></span> {{ Bank }}</span>
-                            <span class="d-block"><span class="icon-room"></span> Chitwan</span>
-                            <span class="d-block"><span
-                                    class="icon-money mr-1"></span> Rs 55,000/- &mdash; Rs 70,000/- </span>
-                        </p>
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi neque fugit
-                            tempora,
-                            numquam voluptate veritatis odit id, iste eum culpa alias, ut officiis omnis itaque ad, rem
-                            sunt
-                            doloremque molestias.</p>
 
+                    <div class="border rounded p-4 bg-white">
+                        <h2 class="h5">{{ job.title }}</h2>
+                        <p>
+                            {% if job.type == '1' %}
+                                <span class="badge featured-badge badge-success">Full time</span>
+                            {% elif job.type == '2' %}
+                                <span class="badge featured-badge badge-primary">Part time</span>
+                            {% else %}
+                                <span style="color: #ffffff;"
+                                      class="badge featured-badge badge-warning">Internship</span>
+                            {% endif %}
+                        </p>
+                        <p>
+                            <span class="d-block"><span class="icon-suitcase"></span> {{ job.company_name }}</span>
+                            <span class="d-block"><span class="icon-room"></span> {{ job.location }}</span>
+                            <span class="d-block"><span
+                                    class="icon-money mr-1"></span>{{ job.salary }}</span>
+                        </p>
+                        <p class="mb-0">{{ job.description }}</p>
                     </div>
                 {% endfor %}
             </div>
         </div>
-
-        <div class="site-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                        <h2 class="mb-5">Experts For Suggestion</h2>
-                    </div>
+    </div>
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center mb-5 section-heading">
+                    <h2 class="mb-5">Experts For Suggestion</h2>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                        <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
-                            <img src="{{ img.person1 }}" class="img-thumbnail" alt="person">
-                            <h2>CEO and Founder Of hiresPRo</h2>
-                            <p>
-                                <span class="d-block"><span></span> 🎓 Harvard University</span>
-                                <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
-                                <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
-                                <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
-                                        class="icon-instagram mr-1"></span></span></span>
-                            </p>
-                        </a>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
+                        <img src="{% static 'images/2.png' %}" class="img-thumbnail" alt="person">
+                        <h2>CEO and Founder Of hiresPRo</h2>
+                        <p>
+                            <span class="d-block"><span></span> 🎓 Harvard University</span>
+                            <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
+                            <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
+                            <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
+                                    class="icon-instagram mr-1"></span></span></span>
+                        </p>
+                    </a>
 
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                        <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
-                            <img src="images/person3.jpg" class="img-thumbnail" alt="person">
-                            <h2>Chief Of hiresPRo</h2>
-                            <p>
-                                <span class="d-block"><span></span> 🎓 Tribhuwan University</span>
-                                <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
-                                <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
-                                <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
-                                        class="icon-instagram mr-1"></span></span></span>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
+                        <img src="{% static 'images/1.jpg' %}" class="img-thumbnail" alt="person">
+                        <h2>Chief Of hiresPRo</h2>
+                        <p>
+                            <span class="d-block"><span></span> 🎓 Tribhuwan University</span>
+                            <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
+                            <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
+                            <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
+                                    class="icon-instagram mr-1"></span></span></span>
 
-                            </p>
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                        <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
-                            <img src="images/person2.jpg" class="img-thumbnail" alt="person">
-                            <h2>Manager Of hiresPRo</h2>
-                            <p>
-                                <span class="d-block"><span></span> 🎓 Coventry University</span>
-                                <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
-                                <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
-                                <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
-                                        class="icon-instagram mr-1"></span></span></span>
+                        </p>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
+                        <img src="{% static 'images/3.jpg' %}" class="img-thumbnail" alt="person">
+                        <h2>Manager Of hiresPRo</h2>
+                        <p>
+                            <span class="d-block"><span></span> 🎓 Coventry University</span>
+                            <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
+                            <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
+                            <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
+                                    class="icon-instagram mr-1"></span></span></span>
 
-                            </p>
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                        <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
-                            <img src="images/person1.jpg" class="img-thumbnail" alt="person">
-                            <h2>Expert Of hiresPRo</h2>
-                            <p>
-                                <span class="d-block"><span></span> 🎓 Gothe University</span>
-                                <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
-                                <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
+                        </p>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#" class="h-100 feature-item" style="background-color: #abb5bf">
+                        <img src="{% static 'images/4.png' %}" class="img-thumbnail" alt="person">
+                        <h2>Expert Of hiresPRo</h2>
+                        <p>
+                            <span class="d-block"><span></span> 🎓 Gothe University</span>
+                            <span class="d-block"><span class="icon-room"></span> Kathmandu</span>
+                            <span class="d-block"><span class="icon-phon mr-1"></span>📞 987465125</span><br>
 
-                                <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
-                                        class="icon-instagram mr-1"></span></span></span>
+                            <span class="d-block"><span class="icon-facebook mr-1">       &nbsp;  <span
+                                    class="icon-instagram mr-1"></span></span></span>
 
-                            </p>
-                        </a>
-                    </div>
+                        </p>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
     </div>
 {% endblock content %}

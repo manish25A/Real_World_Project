@@ -34,6 +34,7 @@
                                         {% endfor %}
                                     {% endfor %}
                                 {% endif %}
+<<<<<<< Updated upstream
 
 
 <div class="row1">
@@ -105,54 +106,131 @@
                                             </select>
                                         </div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-xl-6 form-group">
-                                            <label for="validity">Validity of the post</label>
-                                            <input id="validity" name="last_date" type="date" class="form-control"
-                                                   value="{{ form.last_date.value|default_if_none:"" }}">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <hr class="margin-bottom--big">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <h4>Company details</h4>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 form-group">
-                                            <label for="company_name">Company name</label>
-                                            <input id="company_name" name="company_name" type="text"
-                                                   class="form-control"
-                                                   value="{{ form.company_name.value|default_if_none:"" }}">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 form-group">
-                                            <label for="company_description">Company Description</label>
-                                            <textarea id="company_description" name="company_description" rows="3"
-                                                      class="form-control">{{ form.company_description.value|default_if_none:"" }}</textarea>
-                                        </div>
-                                    </div>
+=======
+>>>>>>> Stashed changes
 
 
-                                    <div class="row">
-                                        <div class="col-lg-12 text-center">
-                                            <hr>
-                                            <button type="submit" class="btn btn-outline-white-primary"><i
-                                                    class="fa fa-magic"></i>
-                                                Save and publish
-                                            </button>
+                                <div class="row1">
+                                    <div class="testbox">
+                                        <div class="form" action="/">
+
+                                            <form id="job-main-form" method="post" action="" class="job-add-form">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <h4>Job details</h4>
+                                                        <p class="text-muted text-small">
+                                                        <strong> <h3> Once You upload a it cannot be changed.</h3></strong></p>
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 form-group">
+                                                        <label for="title">Job Title</label>
+                                                        <input id="title" name="title" type="text" class="form-control"
+                                                               value="{{ form.title.value|default_if_none:"" }}">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 form-group">
+                                                        <label for="text">Job Description</label>
+                                                        <textarea id="text" name="description" rows="5"
+                                                                  class="form-control">{{ form.description.value|default_if_none:"" }}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 form-group">
+                                                        <label for="salary">Salary(Leave empty if it's
+                                                            negotiable)</label>
+                                                        <input id="salary" name="salary" type="number" min="1000"
+                                                               class="form-control"
+                                                               value="{{ form.salary.value|default_if_none:"" }}">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 form-group">
+                                                        <label for="location">Location</label>
+                                                        <input id="location" name="location" type="text"
+                                                               placeholder="Address of your company"
+                                                               class="form-control"
+                                                               value="{{ form.location.value|default_if_none:"" }}">
+                                                    </div>
+                                                    <div class="col-lg-6 form-group">
+                                                        <label for="type">Type</label>
+                                                        <select id="type" name="type" placeholder="Choose job type"
+                                                                class="form-control select2">
+                                                            <option value="1" {% if form.type.value == "1" %}
+                                                                    selected {% endif %}>
+                                                                Full time
+                                                            </option>
+                                                            <option value="2" {% if form.type.value == "2" %}
+                                                                    selected {% endif %}>
+                                                                Part time
+                                                            </option>
+                                                            <option value="3" {% if form.type.value == "3" %}
+                                                                    selected {% endif %}>
+                                                                Internship
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-xl-6 form-group">
+                                                        <label for="validity">Validity of the post</label>
+                                                        <input id="validity" name="last_date" type="date"
+                                                               class="form-control"
+                                                               value="{{ form.last_date.value|default_if_none:"" }}">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <hr class="margin-bottom--big">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <h4>Company details</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 form-group">
+                                                        <label for="company_name">Company name</label>
+                                                        <input id="company_name" name="company_name" type="text"
+                                                               class="form-control"
+                                                               value="{{ form.company_name.value|default_if_none:"" }}">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 form-group">
+                                                        <label for="company_description">Company Description</label>
+                                                        <textarea id="company_description" name="company_description"
+                                                                  rows="3"
+                                                                  class="form-control">{{ form.company_description.value|default_if_none:"" }}</textarea>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-lg-12 text-center">
+                                                        <hr>
+                                                        <button type="submit" class="btn btn-outline-white-primary"><i
+                                                                class="fa fa-magic"></i>
+                                                            Save and publish
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
+<<<<<<< Updated upstream
                                 </form>
     </div>
     </div>
 </div>
+=======
+                                </div>
+>>>>>>> Stashed changes
 
                             </div>
                         </div>
