@@ -15,12 +15,7 @@
       </div>
     </div>
 
-    <div class="sidebar">
-      <div class="profile_info">
-        <h4>Bishal Jung</h4>
-      </div>
-      <a class="actve" href="#"><strong>🖥️</strong><span> Profile</span></a>
-    </div>
+
 
                         <div class="box">
                             {% if form.errors %}
@@ -45,7 +40,7 @@
                     <div class="forms" action="index.html" method="post">
 
                             <h1>Your Profile</h1>
-                             <legend><span class="number">1</span>Basic Information</legend>
+                             <legend>Basic Information</legend>
                              <form action="" method="post">
                                 {% csrf_token %}
                                 {% for field in form %}

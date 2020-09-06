@@ -36,16 +36,16 @@
                                 {% endif %}
 
 
-                                <div class="row1">
-                                    <div class="testbox">
-                                        <div class="form" action="/">
+                                <div class="row1" >
+                                    <div class="testbox" >
+                                        <div class="form" action="/" style="background: lightblue;">
 
                                             <form id="job-main-form" method="post" action="" class="job-add-form">
                                                 {% csrf_token %}
                                                 <div class="row">
                                                     <div class="col-lg-12">
-                                                        <h4>Job details</h4>
-                                                        <p class="text-muted text-small">You cannot change data once it
+                                                        <h4 style="text-align: center;">Job details</h4>
+                                                        <p class="text-muted text-small" style="text-align: center;">You cannot change data once it
                                                             is inserted. So, insert carefully </p>
                                                         <hr>
                                                     </div>
@@ -53,14 +53,14 @@
                                                 <div class="row">
                                                     <div class="col-lg-12 form-group">
                                                         <label for="title">Job Title</label>
-                                                        <input id="title" name="title" type="text" class="form-control"
+                                                        <input id="title" name="title" type="text" class="form-control" style="background: ghostwhite;"
                                                                value="{{ form.title.value|default_if_none:"" }}">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-12 form-group">
                                                         <label for="text">Job Description</label>
-                                                        <textarea id="text" name="description" rows="5"
+                                                        <textarea id="text" name="description" rows="5" style="background: ghostwhite;"
                                                                   class="form-control">{{ form.description.value|default_if_none:"" }}</textarea>
                                                     </div>
                                                 </div>
@@ -68,7 +68,7 @@
                                                     <div class="col-lg-12 form-group">
                                                         <label for="salary">Salary(Leave empty if it's
                                                             negotiable)</label>
-                                                        <input id="salary" name="salary" type="number" min="1000"
+                                                        <input id="salary" name="salary" type="number" min="1000" style="background: ghostwhite;"
                                                                class="form-control"
                                                                value="{{ form.salary.value|default_if_none:"" }}">
                                                     </div>
@@ -76,14 +76,14 @@
                                                 <div class="row">
                                                     <div class="col-lg-6 form-group">
                                                         <label for="location">Location</label>
-                                                        <input id="location" name="location" type="text"
+                                                        <input id="location" name="location" type="text" style="background: ghostwhite;"
                                                                placeholder="Address of your company"
                                                                class="form-control"
                                                                value="{{ form.location.value|default_if_none:"" }}">
                                                     </div>
                                                     <div class="col-lg-6 form-group">
                                                         <label for="type">Type</label>
-                                                        <select id="type" name="type" placeholder="Choose job type"
+                                                        <select id="type" name="type" placeholder="Choose job type" style="background: ghostwhite;"
                                                                 class="form-control select2">
                                                             <option value="1" {% if form.type.value == "1" %}
                                                                     selected {% endif %}>
@@ -104,7 +104,7 @@
                                                 <div class="row">
                                                     <div class="col-xl-6 form-group">
                                                         <label for="validity">Validity of the post</label>
-                                                        <input id="validity" name="last_date" type="date"
+                                                        <input id="validity" name="last_date" type="date" style="background: ghostwhite;"
                                                                class="form-control"
                                                                value="{{ form.last_date.value|default_if_none:"" }}">
                                                     </div>
@@ -122,7 +122,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-12 form-group">
                                                         <label for="company_name">Company name</label>
-                                                        <input id="company_name" name="company_name" type="text"
+                                                        <input id="company_name" name="company_name" type="text" style="background: ghostwhite;"
                                                                class="form-control"
                                                                value="{{ form.company_name.value|default_if_none:"" }}">
                                                     </div>
@@ -130,7 +130,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-12 form-group">
                                                         <label for="company_description">Company Description</label>
-                                                        <textarea id="company_description" name="company_description"
+                                                        <textarea id="company_description" name="company_description" style="background: ghostwhite;"
                                                                   rows="3"
                                                                   class="form-control">{{ form.company_description.value|default_if_none:"" }}</textarea>
                                                     </div>
