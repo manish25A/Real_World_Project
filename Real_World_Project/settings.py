@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd_+z$xap5m*abr$v&1$_wjjj*-mxw5k_cazvc2#g1=9ja9_3)u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 # Application definition
 
@@ -123,44 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-CORS_ORIGIN_ALLOW_ALL = True
-
-
-CORS_ALLOW_METHODS = (
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-)
-
-CORS_ALLOW_HEADERS = (
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-    'is_already_applied'
-)
-
-
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
+# overwriting base auth model
 AUTH_USER_MODEL = "accounts.user"
-
-ELASTIC_HOST_NAME = os.environ.get('ELASTIC_HOST_NAME', 'localhost')
-ELASTIC_HOST_PORT = os.environ.get('ELASTIC_HOST_PORT', '9200')
-
-
-ELASTICSEARCH_DSL = {
-    'default': {
-        'hosts': ELASTIC_HOST_NAME + ':' + ELASTIC_HOST_PORT,
-    },
-}

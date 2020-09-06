@@ -1,30 +1,28 @@
-from accounts.forms import *
 from django.contrib import messages, auth
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, FormView, RedirectView
 
+from accounts.forms import *
 from accounts.models import User
 
 
+# rendering and saving signup page for employee
 class RegisterEmployeeView(CreateView):
+    # defining models, forms and template
     model = User
     form_class = EmployeeRegistrationForm
 
     template_name = 'employees/seekersignup.html'
     success_url = '/'
 
-    extra_context = {
-        'title': 'Register'
-    }
-
     def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
             return HttpResponseRedirect(self.get_success_url())
         return super().dispatch(self.request, *args, **kwargs)
 
+    # saving the form data if the  form is valid
     def post(self, request, *args, **kwargs):
-
         form = self.form_class(data=request.POST)
 
         if form.is_valid():
@@ -37,21 +35,20 @@ class RegisterEmployeeView(CreateView):
             return render(request, 'employees/seekersignup.html', {'form': form})
 
 
+# rendering and saving signup page for employer
 class RegisterEmployerView(CreateView):
     model = User
     form_class = EmployerRegistrationForm
     template_name = 'employers/providerssignup.html'
     success_url = '/'
 
-    extra_context = {
-        'title': 'Register'
-    }
-
+    # checking if some user is logged in or not
     def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
             return HttpResponseRedirect(self.get_success_url())
         return super().dispatch(self.request, *args, **kwargs)
 
+    # posting the save data after validating
     def post(self, request, *args, **kwargs):
 
         form = self.form_class(data=request.POST)
@@ -66,14 +63,14 @@ class RegisterEmployerView(CreateView):
             return render(request, 'employers/providerssignup.html', {'form': form})
 
 
+# loggin in with email and password
 class LoginView(FormView):
     """
-        Provides the ability to login as a user with an email and password
+         login as a user with an email and password
     """
     success_url = '/'
     form_class = UserLoginForm
     template_name = 'login.html'
-
 
     def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
@@ -100,7 +97,7 @@ class LoginView(FormView):
 
 class LogoutView(RedirectView):
     """
-    Provides users the ability to logout
+   logout view
     """
     url = '/login'
 

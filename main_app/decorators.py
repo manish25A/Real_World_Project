@@ -1,6 +1,7 @@
 from django.core.exceptions import PermissionDenied
 
 
+# decorator for usage permissions
 def user_is_employer(function):
     def wrap(request, *args, **kwargs):
         user = request.user

@@ -8,7 +8,7 @@ from accounts.forms import EmployeeProfileUpdateForm
 from accounts.models import User
 from main_app.decorators import user_is_employee
 
-
+#edit view for employees
 class EditProfileView(UpdateView):
     model = User
     form_class = EmployeeProfileUpdateForm

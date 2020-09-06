@@ -4,6 +4,7 @@ from django.db import models
 from accounts.managers import UserManager
 
 
+# using the abstractuser class of user to store email and  password
 class User(AbstractUser):
     username = None
     role = models.CharField(max_length=12, error_messages={

@@ -1,10 +1,11 @@
-from django.urls import path, include
-
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import path, include
 
 from main_app.views.seeker import EditProfileView
 from .views import *
+
+# defining urls with appname and  name  than url
 
 app_name = "accounts"
 

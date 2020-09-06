@@ -12,6 +12,7 @@ from main_app.forms.forms import CreateJobForm
 from main_app.models.models import Job, Applicant
 
 
+# data for dashbaord and checking  whether the user is logged in employer or not  using  decorator
 class DashboardView(ListView):
     model = Job
     template_name = 'providers/providersdash.html'
@@ -27,6 +28,7 @@ class DashboardView(ListView):
         return self.model.objects.filter(user_id=self.request.user.id)
 
 
+# showing the applicants per job
 class ApplicantPerJobView(ListView):
     model = Applicant
     template_name = 'providers/applieddata.html'
@@ -47,12 +49,11 @@ class ApplicantPerJobView(ListView):
         return context
 
 
+# saving and rendering the job create view
 class JobCreateView(CreateView):
     template_name = 'providers/jobcreate.html'
     form_class = CreateJobForm
-    extra_context = {
-        'title': 'Post New Job'
-    }
+
     success_url = reverse_lazy('main:employer-dashboard')
 
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
@@ -76,16 +77,19 @@ class JobCreateView(CreateView):
             return self.form_invalid(form)
 
 
+# showing all the applicants
 class ApplicantsListView(ListView):
     model = Applicant
     template_name = 'providers/all-applicants.html'
     context_object_name = 'applicants'
+    paginate_by = 2
 
     def get_queryset(self):
         # jobs = Job.objects.filter(user_id=self.request.user.id)
         return self.model.objects.filter(job__user_id=self.request.user.id)
 
 
+# changing the not filled position to filled
 @login_required(login_url=reverse_lazy('accounts:login'))
 def filled(request, job_id=None):
     try:
@@ -96,5 +100,3 @@ def filled(request, job_id=None):
         print(e.message)
         return HttpResponseRedirect(reverse_lazy('main:employer-dashboard'))
     return HttpResponseRedirect(reverse_lazy('main:employer-dashboard'))
-
-

@@ -3,6 +3,7 @@ from django.utils import timezone
 
 from accounts.models import User
 
+# creating job model
 JOB_TYPE = (
     ('1', "Full time"),
     ('2', "Part time"),
@@ -27,6 +28,7 @@ class Job(models.Model):
         return self.title
 
 
+# creating applicant model
 class Applicant(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='applicants')
@@ -39,6 +41,7 @@ class Applicant(models.Model):
         return self.user.get_full_name()
 
 
+# creating contactpage model
 class ContactPage(models.Model):
     id = models.AutoField(primary_key=True)
     contactname = models.CharField(max_length=50)

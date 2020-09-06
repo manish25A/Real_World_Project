@@ -1,11 +1,13 @@
 from django.contrib.auth.models import BaseUserManager
 
 
+# replacing the default django manager
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
 
     use_in_migrations = True
 
+    # creating users and superusers
     def _create_user(self, email, password, **extra_fields):
         """Create and save a User with the given email and password."""
         if not email:

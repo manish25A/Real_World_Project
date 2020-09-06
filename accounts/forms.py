@@ -5,9 +5,11 @@ from django.contrib.auth.forms import UserCreationForm
 from accounts.models import User
 
 
+# creating form for  registering the employee using usercreationform class provided by django
 class EmployeeRegistrationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
+        # creating fields and  labels and placeholders for creation fomr
         super(EmployeeRegistrationForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].label = "First Name"
         self.fields['last_name'].label = "Last Name"
@@ -46,6 +48,8 @@ class EmployeeRegistrationForm(UserCreationForm):
             }
         )
 
+        # meta class with models and fields with error messages
+
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'address', 'email', 'password1', 'password2']
@@ -65,6 +69,8 @@ class EmployeeRegistrationForm(UserCreationForm):
 
         }
 
+        # save using manager and role
+
     def save(self, commit=True):
         user = super(UserCreationForm, self).save(commit=False)
         user.role = "employee"
@@ -73,9 +79,11 @@ class EmployeeRegistrationForm(UserCreationForm):
         return user
 
 
+# creating form for  registering the employer using usercreationform class provided by django
 class EmployerRegistrationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
+        # creating fields
         super(EmployerRegistrationForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].label = "Company Name"
         self.fields['last_name'].label = "Company Address"
@@ -121,6 +129,7 @@ class EmployerRegistrationForm(UserCreationForm):
                 'max_length': 'Last Name is too long'
             }
         }
+        # saving as employer
 
     def save(self, commit=True):
         user = super(UserCreationForm, self).save(commit=False)
@@ -130,7 +139,9 @@ class EmployerRegistrationForm(UserCreationForm):
         return user
 
 
+# user login form
 class UserLoginForm(forms.Form):
+    #defining the form fields
     email = forms.EmailField()
     password = forms.CharField(
         label="Password",
@@ -138,12 +149,14 @@ class UserLoginForm(forms.Form):
         widget=forms.PasswordInput,
     )
 
+    #using default constructor class to keep placeholders
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.user = None
         self.fields['email'].widget.attrs.update({'placeholder': 'Enter Email'})
         self.fields['password'].widget.attrs.update({'placeholder': 'Enter Password'})
 
+#getting the data  for authentication
     def clean(self, *args, **kwargs):
         email = self.cleaned_data.get("email")
         password = self.cleaned_data.get("password")
@@ -152,7 +165,7 @@ class UserLoginForm(forms.Form):
             self.user = authenticate(email=email, password=password)
 
             if self.user is None:
-                raise forms.ValidationError("User or Password is not available.")
+                raise forms.ValidationError("User or Password does not match.")
             if not self.user.check_password(password):
                 raise forms.ValidationError("Password Does not Match.")
             if not self.user.is_active:
@@ -163,7 +176,7 @@ class UserLoginForm(forms.Form):
     def get_user(self):
         return self.user
 
-
+#update form for employee
 class EmployeeProfileUpdateForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
@@ -187,4 +200,3 @@ class EmployeeProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ["first_name", "last_name", "address"]
-
